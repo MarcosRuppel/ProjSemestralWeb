@@ -1,0 +1,87 @@
+        <div class="card">
+            <div class="img-prod">
+                <img src="media/jetta.jpg">
+            </div>
+            <div class="info-prod">
+                <div class="nome-prod">
+                    VOLKSWAGEN JETTA VARIANT 2.5 2011 
+                </div>
+                <div class="specs-prod">
+                    75.000 km<br>
+                    Automático<br>
+                    2.5l Asp - Gasolina<br>
+                </div>
+                <div class="preco-prod">
+                    R$ 64.000
+                </div>
+            </div>
+            <div class="botao-carrinho">
+                <button type="button" onclick="addToCart()"><i class="fa-solid fa-cart-plus" style="color: #ffffff;"></i>  Adicionar ao carrinho</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-prod">
+                <img src="media/lancer.jpg">
+            </div>
+            <div class="info-prod">
+                <div class="nome-prod">
+                    MITSUBISHI LANCER EVOLUTION X 2012 
+                </div>
+                <div class="specs-prod">
+                    54.000 km<br>
+                    Automatizado 6 veloc.<br>
+                    2.0L Turbo - Gasolina<br>
+                </div>
+                <div class="preco-prod">
+                    R$ 128.000
+                </div>
+            </div>
+            <div class="botao-carrinho">
+                <button type="button" onclick="addToCart()"><i class="fa-solid fa-cart-plus" style="color: #ffffff;"></i>  Adicionar ao carrinho</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-prod">
+                <img src="media/e63.jpeg">
+            </div>
+            <div class="info-prod">
+                <div class="nome-prod">
+                    MERCEDES-BENZ E63S AMG 4MATIC+ 2017
+                </div>
+                <div class="specs-prod">
+                    14.000 km<br>
+                    Automat. 9 veloc. <br>
+                    4.0L V8 Biturbo Gasolina<br>
+                </div>
+                <div class="preco-prod">
+                    R$ 595.000
+                </div>
+            </div>
+            <div class="botao-carrinho">
+                <button type="button" onclick="addToCart()"><i class="fa-solid fa-cart-plus" style="color: #ffffff;"></i>  Adicionar ao carrinho</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-prod">
+                <img src="media/mustang.jpeg">
+            </div>
+            <div class="info-prod">
+                <div class="nome-prod">
+                    Ford Mustang Grande 1971 
+                 </div>
+                <div class="specs-prod">
+                    102.000 km<br>
+                    Manual 5 veloc.<br>
+                    5.9L V8 Gasolina<br>
+                </div>
+                <div class="preco-prod">
+                    R$ 254.000
+                </div>
+            </div>
+            <div class="botao-carrinho">
+                <button type="button" onclick="addToCart()"><i class="fa-solid fa-cart-plus" style="color: #ffffff;"></i>  Adicionar ao carrinho</button>
+            </div>
+        </div>
