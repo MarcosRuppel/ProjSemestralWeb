@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/estilo.css" />
     <link rel="stylesheet" href="resources/fontawesome/css/all.css" />
-    <script defer src="js/login.js"></script>
-    <script src="js/menu.js"></script>
+    <script src="js/index.js"></script>
     <title>Login</title>
 </head>
 <body>
@@ -16,8 +15,13 @@
                 <img src="media/images/logo.png" />
             </div>
             <div class="buscador">
-                <i class="fa-solid fa-magnifying-glass" style="color: #24b6ff;"></i>
-                <input type="text" placeholder="buscar..." />
+                <div class="search-icon" id="searchIcon">
+                    <i class="fa-solid fa-magnifying-glass" style="color: #24b6ff;"></i>
+                </div>
+                <div class="search-icon hidden" id="clearButton">
+                    <i class="fa-solid fa-circle-xmark" style="color: #24b6ff;" onclick="limparBusca()"></i>
+                </div> 
+                <input type="text" placeholder="buscar..." id="buscar" />
             </div>
         </div>
         <div class="header-menu">
