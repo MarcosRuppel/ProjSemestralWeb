@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/estilo.css" />
+    <link rel="stylesheet" href="resources/fontawesome/css/all.css" />
+    <script src="js/index.js"></script>
+    <title>Admin</title>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-loja">
+                <img src="media/images/logo.png" />
+            </div>
+            <div class="buscador">
+                <div class="search-icon" id="searchIcon">
+                    <i class="fa-solid fa-magnifying-glass" style="color: #24b6ff;"></i>
+                </div>
+                <div class="search-icon hidden" id="clearButton">
+                    <i class="fa-solid fa-circle-xmark" style="color: #24b6ff;" onclick="limparBusca()"></i>
+                </div> 
+                <input type="text" placeholder="buscar..." id="buscar" />
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars" id="hamburger-icon"></i> <!-- Ícone de hambúrguer -->
+                <i class="fas fa-times" id="close-icon" style="display: none;"></i> <!-- Ícone de fechar (oculto) -->
+            </div>        
+            <ul class="menu">
+                <li><a href="index.html"><i class="fa-solid fa-store" style="color: #ffffff;"></i>LOJA</a></li>
+                <li><a href="carrinho.html"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>CARRINHO</a></li>
+                <li><a href="login.html"><i class="fa-solid fa-user" style="color: #ffffff;"></i>LOGIN</a></li>
+                <li><a href="#"><i class="fa-solid fa-screwdriver-wrench" style="color: #ffffff;"></i>ADMIN</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="linha-decorativa"></div>
+</body>
+</html>
