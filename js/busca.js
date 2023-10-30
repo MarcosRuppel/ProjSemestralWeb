@@ -1,6 +1,7 @@
 var buscadorInput = document.getElementById('buscar');
 var searchIcon = document.getElementById('searchIcon');
 var clearButton = document.getElementById('clearButton');
+var tituloPagina = document.getElementById('titulo-container');
 
 buscadorInput.addEventListener('keyup', function (event) {
     searchIcon.classList.add('hidden');
@@ -11,6 +12,8 @@ buscadorInput.addEventListener('keyup', function (event) {
 
         // quando a tecla "Enter" for pressionada, faça uma solicitação AJAX
         buscarProdutos(termoDeBusca);
+
+        tituloPagina.innerHTML = `Resultados da Busca por "${termoDeBusca}"`;
     }
 });
 
@@ -57,4 +60,6 @@ function limparBusca() {
 
     // Reexibir todos os produtos
     buscarProdutos('all');
+    
+    tituloPagina.innerHTML = 'Mostrando Todos os Produtos:';
 }

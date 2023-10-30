@@ -19,6 +19,8 @@ while ($registro = mysqli_fetch_assoc($resultado)) {
     array_push($dados, $registro);
 }
 
+mysqli_close($con);
+
 $json = json_encode($dados);
 echo $json;
 ?>

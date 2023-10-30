@@ -46,3 +46,15 @@ INSERT into produto (nome, descricao, preco, estoque, imagem) VALUES
     ('TURBINA AVIONICS T4 .72/1.00 PULSATIVA A40-4', 'Turbina de Duplo Fluxo (Pulsativa), Flange T4, Rotor Frio: 66/74.15, Rotor Quente: 65/88, Pressão da válvula até 2Kg', 2056.73, 5, '01-auto-avionics-turbo-a40-4-turbina.png'),
     ('CHIP POTÊNCIA PIGGYBACK AUDI A4 2.0 TFSI SEDAN AVANT','Compatível com veículos Audi A4 motor 2.0 TFSI anos 2017 e superiores, aumento de +54cv +9,1KGFM', 4994.00, 4, 'modulo-racechip-gts-app-A4-avant.png')
     ;
+
+DELIMITER //
+CREATE FUNCTION totalCarrinho() RETURNS INT DETERMINISTIC
+BEGIN
+  DECLARE total INT;
+  SELECT SUM(quantidade) INTO total FROM carrinho;
+  RETURN total;
+END;
+//
+DELIMITER ;
+
+SELECT totalCarrinho();	

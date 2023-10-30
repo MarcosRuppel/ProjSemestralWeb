@@ -46,13 +46,3 @@ function toggleMenu() {
     }
 }
 
-// função de adicionar produtos ao carrinho
-function addToCart(id){
-    var dados = new FormData();
-    dados.append("id", id);
-
-    fetch("php/comprar.php", {
-        method: "POST",
-        body: dados
-    });
-}
