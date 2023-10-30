@@ -2,6 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
     atualizaQtdCarrinho(); // atualiza a quantidade do carrinho ao carregar a página
 });
 
+function mostrarSnackbar(mensagem){
+    s = document.getElementById('snackbar');
+    s.innerHTML = mensagem;
+    s.className = "show";
+    setTimeout(function(){ s.className = s.className.replace("show", ""); }, 3000);
+}
+
 // função de adicionar produtos ao carrinho
 async function addToCart(produto_id) {
     var adicionar = await fetch('php/carrinho.php', {
@@ -12,7 +19,7 @@ async function addToCart(produto_id) {
         body: `add_to_cart=1&produto_id=${produto_id}`,
     });
     const resultado = await adicionar.text();
-    alert(resultado);
+    mostrarSnackbar(resultado);
     atualizaQtdCarrinho();
 }
 
@@ -26,7 +33,7 @@ async function removeFromCart(produto_id) {
         body: `remove_from_cart=1&produto_id=${produto_id}`,
     });
     const resultado = await remover.text();
-    alert(resultado);
+    mostrarSnackbar(resultado);
     atualizaQtdCarrinho();
 }
 

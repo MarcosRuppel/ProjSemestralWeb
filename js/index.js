@@ -16,8 +16,10 @@ window.onload = async function(){
                 <img src="media/images/${conteudo[i].imagem}"/>
             </div>
             <div class="info-prod">
-                <div class="nome-prod">${conteudo[i].nome}</div>
-                <div class="specs-prod">${conteudo[i].descricao}</div>
+                <div class="nome-desc">
+                    <div class="nome-prod">${conteudo[i].nome}</div>
+                    <div class="specs-prod">${conteudo[i].descricao}</div>
+                </div>
                 <div class="preco-prod">R$ ${conteudo[i].preco}</div>
             </div>
             <div class="botao-carrinho">
@@ -45,4 +47,3 @@ function toggleMenu() {
         closeIcon.style.display = 'none';
     }
 }
-
