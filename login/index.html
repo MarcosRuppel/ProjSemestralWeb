@@ -20,32 +20,41 @@
             <div class="menu-toggle" onclick="toggleMenu()">
                 <i class="fas fa-bars" id="hamburger-icon"></i> <!-- Ícone de hambúrguer -->
                 <i class="fas fa-times" id="close-icon" style="display: none;"></i> <!-- Ícone de fechar (oculto) -->
-            </div>        
+            </div>
             <ul class="menu">
                 <li><a href="../index.html"><i class="fa-solid fa-store" style="color: #ffffff;"></i>LOJA</a></li>
-                <li><a href="../carrinho/"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>CARRINHO</a></li>
-                <li><a href="#"><i class="fa-solid fa-user" style="color: #ffffff;"></i>LOGIN</a></li>
+                <li><a href="../carrinho/"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>CARRINHO (<span id="qtd-carrinho">0</span>)</a></li>
+                <li><a href="#"><i class="fa-solid fa-user" style="color: #ffffff;"></i>INICIAR SESSÃO</a></li>
                 <li><a href="../admin/"><i class="fa-solid fa-screwdriver-wrench" style="color: #ffffff;"></i>ADMIN</a></li>
             </ul>
-        </div>
-        <div class="quatrado_login">
-            <img src=../media/icones/user.png id="user">
-            <div class="barrasdelogin">
-                <div class="user">
-                    <i class="fa-solid fa-user"></i>
-                    <input type="text" placeholder="Login" id="login">
-                </div>
-                <div class="login">
-                    <i class="fa-solid fa-lock"></i><input type="text" placeholder="Senha" id="senha" />
-                </div>
-            </div>
-            <button id="botaologin" type="submit">Login</button>
-            <br>
-            <br>
-            <a href="../registro.html" id="linkregistro">Singup</a>
         </div>
     </header>
 
     <div class="linha-decorativa"></div>
+    <div class="body-conteudo">
+        <h3 style="text-align: center; color: white;" id="titulo-container">Identifique-se:</h3>
+        <div class="container">
+            <div class="quatrado_login">
+                <div class="imagem-login">
+                    <img src="../media/icones/user.png">
+                </div>
+                <div class="barrasdelogin">
+                    <div class="container-login">
+                        <i class="fa-solid fa-user icones-login"></i>
+                        <input type="text" placeholder="Login" id="login">
+                    </div>
+                    <div class="container-senha">
+                        <i class="fa-solid fa-lock icones-login"></i>
+                        <input type="text" placeholder="Senha" id="senha" />
+                    </div>
+                </div>
+                <div class="container-botao">
+                    <button id="botaologin" type="submit">Login</button>
+                    <button id="botaoregistrar" type="submit">Registrar</button>
+                </div>
+            </div>   
+            <!-- os cards são inseridos aqui -->
+        </div>
+    </div>
 </body>
 </html>

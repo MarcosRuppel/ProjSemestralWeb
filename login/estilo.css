@@ -1,64 +1,89 @@
+.container{
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .quatrado_login{
+    margin:auto;
     border-radius: 5px;
     width: 400px;
-    height: 300px;
-    margin: 0 auto;
-    background-color: rgb(57, 13, 13);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    height: 350px;
+    background-color:#3e3e3e;
+    box-shadow: 2px 3px 6px -2px rgba(0,0,0,.59);
+    border: 1px solid #000000;
 }
-#user{
-    width: 150px;
-    margin-left: 31%;
-    margin-top: -25%;
-}
-.quatrado_login i{
-    width: 100px;
-    height: 100px;
+.imagem-login{
+    height: 200px;
+    margin-top:-120px;
+    justify-content: center;
+    display: flex;
+    width: 100%;
 }
 .barrasdelogin{
-    width: 100%;
-    min-width: 200px;
-    max-width: 300px;
-    position: relative;
-    margin:auto;
-    margin-top: 2%;
+    padding: 20px;
+    text-align: center;
+    margin-left: 5px;
 }
 .barrasdelogin input{
-    margin-top: 20px;
-    border: solid 1px rgb(255, 0, 0);
+    margin: 10px 0;
+    text-align: center;
+    border: none;
     background-color: rgb(75, 75, 75);
     border-radius: 5px;
     outline: none;
-    padding: 20px 45% 1px 1px;
+    padding: 10px;
+    width: 80%;
 }
-.fa-user{
-    margin-top: 7%;
-}
-.fa-lock{
-    margin-top: 23%;
+#usuario{
+    margin-top:10px
 }
 #senha{
     margin-top:10px
 }
-.barrasdelogin i{
-    position: absolute;
-    color: rgb(248,47,111);
-    top: 10px;
-    left: 10px;
+.container-botao{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
-
 #botaologin{
-    margin-top: 40px;
-    width: 80px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: rgba(150, 0, 0, 0.9);
-    border-color: #8d8600;
-    border-width: 1px 1px 1px 1px;
-    margin-left: 38%;
+    text-align: center;
+    width: 120px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: green;
+    color:#fff;
+    border:none;
+    font-size:large;
+}
+#botaoregistrar{
+    margin-top: 10px;
+    text-align: center;
+    width: 120px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #4b5283;
+    color:#fff;
+    border:none;
+    font-size:medium;
+}
+.container-login{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.container-senha{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.container-senha input:hover{
+    background-color:  rgb(90, 90, 90);;
+}
+.container-login input:hover{
+    background-color:  rgb(90, 90, 90);;
 }
   
 #linkregistro {
@@ -71,4 +96,48 @@
 
 #linkregistro:hover {
     color: #4c00ff; /* Cor de fundo ao passar o mouse */
+}
+.icones-login{
+    left: 25px;
+    position: relative;
+    font-size: 20px;
+    color: #fff;
+}
+/* Propriedades para design responsivo */
+@media (max-width: 768px) {
+    .quatrado_login{
+        margin:auto;
+        border-radius: 5px;
+        width: 400px;
+        height: 350px;
+        background-color:#3e3e3e;
+        box-shadow: 2px 3px 6px -2px rgba(0,0,0,.59);
+        border: 1px solid #000000;
+    }
+    .imagem-login{
+        height: 150px;
+        margin-top:-100px;
+        justify-content: center;
+        display: flex;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .quatrado_login{
+        margin:auto;
+        border-radius: 5px;
+        width: 300px;
+        height: 325px;
+        background-color:#3e3e3e;
+        box-shadow: 2px 3px 6px -2px rgba(0,0,0,.59);
+        border: 1px solid #000000;
+    }
+    .imagem-login{
+        height: 130px;
+        margin-top:-80px;
+        justify-content: center;
+        display: flex;
+        width: 100%;
+    }
 }
