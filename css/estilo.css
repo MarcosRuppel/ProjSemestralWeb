@@ -23,18 +23,18 @@ div {
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     background-color: #1a1a1a;
 }
 .card {
-    width: 300px;
+    width: 250px;
     height: 400px;
     background-color:#3e3e3e;
     box-shadow: 2px 3px 6px -2px rgba(0,0,0,.59);
     border: 1px solid #000000;
     border-radius: 5px;
     padding: 10px;
-    margin: 10px;
+    margin: 20px;
     text-align: center;
     transition-duration: 0.5s;
 }
@@ -185,14 +185,14 @@ header {
     background-color: rgba(150, 0, 0, 0.9);
     position: absolute;
     top: 100px;
-    right: -250px;
-    width: 250px;
+    width: 0px; /* inicialmente oculto */
     height: 100%;
     transition: 0.5s;
 }
 .menu li {
     padding: 15px;
     text-align: center;
+    display: none; /* inicialmente oculto */
 }
 .menu li i {
     margin-right: 10px;
@@ -203,4 +203,13 @@ header {
 }
 .content {
     padding: 20px;
+}
+
+/* Propriedades para design responsivo */
+@media (max-width: 768px) {
+    /* Estilos para telas menores, como tablets e smartphones */
+}
+
+@media (max-width: 480px) {
+    /* Estilos para telas ainda menores, como smartphones em modo paisagem */
 }

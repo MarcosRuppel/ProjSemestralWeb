@@ -34,16 +34,26 @@ window.onload = async function(){
 // Menu de hamburguer
 function toggleMenu() {
     var menu = document.querySelector('.menu');
+    var menuItems = document.querySelectorAll('.menu li');
     var hamburgerIcon = document.getElementById('hamburger-icon');
     var closeIcon = document.getElementById('close-icon');
 
-    if (menu.style.right === '-250px' || menu.style.right === '') {
-        menu.style.right = '0';
+    if (menu.style.width === '0px' || menu.style.width === '') {
+        menu.style.width = '250px';
         hamburgerIcon.style.display = 'none';
         closeIcon.style.display = 'inline-block';
+        // Mostrar os itens do menu quando o menu estiver aberto
+        
+        menuItems.forEach(function(item) {
+            item.style.display = 'block';
+        });
     } else {
-        menu.style.right = '-250px';
+        menu.style.width = '0';
         hamburgerIcon.style.display = 'inline-block';
         closeIcon.style.display = 'none';
+        // Ocultar os itens do menu quando o menu estiver fechado
+        menuItems.forEach(function(item) {
+            item.style.display = 'none';
+        });
     }
 }
