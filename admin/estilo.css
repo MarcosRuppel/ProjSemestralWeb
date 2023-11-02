@@ -1,0 +1,29 @@
+.button-container {
+    width: 100%;
+    margin-top: 5px;
+}
+.button-container:hover{
+    
+}
+#add{
+    margin-left: 10px;
+    height: 45px;
+    border-radius: 10px;
+    background-color:green
+}
+#delete{
+    margin-right: 10px;
+    float: right;
+    height: 45px;
+    border-radius: 10px;
+    background-color:red
+    
+}
+.fa-trash {
+    color: rgb(105, 0, 0);
+    background-color: red;
+}
+.fa-plus{
+    color: rgb(30, 255, 0);
+    background-color: green
+}

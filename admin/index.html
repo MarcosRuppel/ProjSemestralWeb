@@ -4,31 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/estilo.css" />
+    <link rel="stylesheet" href="../css/snackbar.css" />
     <link rel="stylesheet" href="../resources/fontawesome/css/all.css" />
+    <link rel="stylesheet" href="estilo.css" />
     <script src="../js/index.js"></script>
+    <script defer src="../js/busca.js"></script>
+    <script defer src="../js/carrinho.js"></script>
     <title>Admin</title>
 </head>
 <body>
     <header>
         <div class="header-container">
             <div class="logo-loja">
-                <a href="../index.html"><img src="../media/images/logo.png" /></a>
+                <a href="index.html"><img src="../media/images/logo.png" /></a>
+            </div>
+            <div class="buscador">
+                <div class="search-icon" id="searchIcon">
+                    <i class="fa-solid fa-magnifying-glass" style="color: #24b6ff;"></i>
+                </div>
+                <div class="search-icon hidden" id="clearButton">
+                    <i class="fa-solid fa-circle-xmark" style="color: #24b6ff;" onclick="limparBusca()"></i>
+                </div> 
+                <input type="text" placeholder="buscar..." id="buscar" />
             </div>
         </div>
         <div class="header-menu">
             <div class="menu-toggle" onclick="toggleMenu()">
                 <i class="fas fa-bars" id="hamburger-icon"></i> <!-- Ícone de hambúrguer -->
                 <i class="fas fa-times" id="close-icon" style="display: none;"></i> <!-- Ícone de fechar (oculto) -->
-            </div>        
+            </div>
             <ul class="menu">
                 <li><a href="../index.html"><i class="fa-solid fa-store" style="color: #ffffff;"></i>LOJA</a></li>
-                <li><a href="../carrinho/"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>CARRINHO</a></li>
-                <li><a href="../login/"><i class="fa-solid fa-user" style="color: #ffffff;"></i>LOGIN</a></li>
+                <li><a href="../carrinho/"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>CARRINHO (<span id="qtd-carrinho">0</span>)</a></li>
+                <li><a href="../login/"><i class="fa-solid fa-user" style="color: #ffffff;"></i>INICIAR SESSÃO</a></li>
                 <li><a href="#"><i class="fa-solid fa-screwdriver-wrench" style="color: #ffffff;"></i>ADMIN</a></li>
             </ul>
         </div>
     </header>
 
     <div class="linha-decorativa"></div>
+    <div class="button-container">
+        <button id="add" type="submit"><i class="fa-solid fa-plus" aria-hidden="true"></i>Adicionar/Pedir Produtos</i></button>
+        <button id="delete" type="submit"><i class="fa-solid fa-trash" aria-hidden="true"></i>Excluir os Produtos</i></button>
+    <div class="body-conteudo">
+        <h3 style="text-align: center; color: white;" id="titulo-container"></h3>
+        <div class="container" id="produtos">
+            <!-- os cards são inseridos aqui -->
+        </div>
+    </div>
+    
+
+    <div id="snackbar">teste</div>
+    
 </body>
 </html>

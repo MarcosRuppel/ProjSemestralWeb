@@ -1,0 +1,74 @@
+.quatrado_login{
+    border-radius: 5px;
+    width: 400px;
+    height: 300px;
+    margin: 0 auto;
+    background-color: rgb(57, 13, 13);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#user{
+    width: 150px;
+    margin-left: 31%;
+    margin-top: -25%;
+}
+.quatrado_login i{
+    width: 100px;
+    height: 100px;
+}
+.barrasdelogin{
+    width: 100%;
+    min-width: 200px;
+    max-width: 300px;
+    position: relative;
+    margin:auto;
+    margin-top: 2%;
+}
+.barrasdelogin input{
+    margin-top: 20px;
+    border: solid 1px rgb(255, 0, 0);
+    background-color: rgb(75, 75, 75);
+    border-radius: 5px;
+    outline: none;
+    padding: 20px 45% 1px 1px;
+}
+.fa-user{
+    margin-top: 7%;
+}
+.fa-lock{
+    margin-top: 23%;
+}
+#senha{
+    margin-top:10px
+}
+.barrasdelogin i{
+    position: absolute;
+    color: rgb(248,47,111);
+    top: 10px;
+    left: 10px;
+}
+
+#botaologin{
+    margin-top: 40px;
+    width: 80px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgba(150, 0, 0, 0.9);
+    border-color: #8d8600;
+    border-width: 1px 1px 1px 1px;
+    margin-left: 38%;
+}
+  
+#linkregistro {
+    text-decoration: none;
+    background-color: rgb(57, 13, 13);
+    color: #4c00ffad;
+    margin-left: 42%;
+}
+
+
+#linkregistro:hover {
+    color: #4c00ff; /* Cor de fundo ao passar o mouse */
+}
