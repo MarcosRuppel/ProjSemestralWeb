@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/estilo.css" />
+    <link rel="stylesheet" href="../resources/fontawesome/css/all.css" />
+    <script src="../js/index.js"></script>
+    <title>Cadastro de Usuário</title>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-loja">
+                <a href="../index.html"><img src="../media/images/logo.png" /></a>
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars" id="hamburger-icon"></i> <!-- Ícone de hambúrguer -->
+                <i class="fas fa-times" id="close-icon" style="display: none;"></i> <!-- Ícone de fechar (oculto) -->
+            </div>        
+            <ul class="menu">
+                <li><a href="../index.html"><i class="fa-solid fa-store" style="color: #ffffff;"></i>LOJA</a></li>
+                <li><a href="../carrinho/"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>CARRINHO</a></li>
+                <li><a href="#"><i class="fa-solid fa-user" style="color: #ffffff;"></i>LOGIN</a></li>
+                <li><a href="../admin/"><i class="fa-solid fa-screwdriver-wrench" style="color: #ffffff;"></i>ADMIN</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="linha-decorativa"></div>
+
+    <div class="container">
+        <div class="wrapper">
+            <div class="title"><span>Cadastro de Usuário</span></div>
+            <form action="#">
+                <div class="row">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Nome" required>
+                </div>
+                <div class="row">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="row">
+                    <i class="fas fa-calendar"></i>
+                    <input type="date" placeholder="Data de Nascimento" required>
+                </div>
+                <div class="row">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Senha" required>
+                </div>
+                <div class="row button">
+                    <input type="submit" value="Cadastrar">
+                </div>
+                <div class="signup-link">Já é um membro? <a href="#">Faça o login</a></div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
