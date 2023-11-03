@@ -6,7 +6,7 @@
 }
 .quatrado_login{
     margin:auto;
-    border-radius: 5px;
+    border-radius: 8px;
     width: 400px;
     height: 350px;
     background-color:#3e3e3e;
@@ -59,7 +59,7 @@
     font-size:large;
 }
 #botaoregistrar{
-    margin-top: 10px;
+    margin-top: -26px;
     text-align: center;
     width: 120px;
     height: 30px;

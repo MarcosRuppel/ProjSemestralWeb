@@ -1,29 +1,38 @@
+.container{
+    height: 100vh;
+}
 .button-container {
     width: 100%;
     margin-top: 5px;
-}
-.button-container:hover{
-    
+    text-align: center;
+
 }
 #add{
-    margin-left: 10px;
+    border:none;
+    font-size: large;
+    margin: 20px;
     height: 45px;
     border-radius: 10px;
-    background-color:green
+    background-color:green;
+    color: #fff;
 }
 #delete{
-    margin-right: 10px;
-    float: right;
+    border:none;
+    font-size: large;
+    margin: 20px;
     height: 45px;
     border-radius: 10px;
-    background-color:red
+    background-color:#d32f2f;
+    color:#fff;
     
 }
-.fa-trash {
-    color: rgb(105, 0, 0);
-    background-color: red;
+.icone-delete {
+    margin-right: 5px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
 }
-.fa-plus{
+.icone-add{
+    margin-right: 5px;
     color: rgb(30, 255, 0);
-    background-color: green
+    font-size: 20px;
 }
