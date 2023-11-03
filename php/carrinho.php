@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $cartData = array();
     
         // Consulta para obter os produtos no carrinho
-        $query = "SELECT carrinho.produto_id, produto.nome, carrinho.quantidade, produto.preco FROM carrinho INNER JOIN produto ON carrinho.produto_id = produto.id";
+        $query = "SELECT carrinho.produto_id, produto.nome, carrinho.quantidade, produto.preco, produto.imagem FROM carrinho INNER JOIN produto ON carrinho.produto_id = produto.id";
         $result = mysqli_query($con, $query);
     
         while ($row = mysqli_fetch_assoc($result)) {
