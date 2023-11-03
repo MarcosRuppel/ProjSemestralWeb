@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/estilo.css" />
     <link rel="stylesheet" href="../resources/fontawesome/css/all.css" />
+    <link rel="stylesheet" href="style.css" />
     <script src="../js/index.js"></script>
-    <title>Cadastro de Usuário</title>
+    <title>Cadastro</title>
 </head>
 <body>
     <header>
@@ -17,46 +18,49 @@
         </div>
         <div class="header-menu">
             <div class="menu-toggle" onclick="toggleMenu()">
-                <i class="fas fa-bars" id="hamburger-icon"></i> <!-- Ícone de hambúrguer -->
-                <i class="fas fa-times" id="close-icon" style="display: none;"></i> <!-- Ícone de fechar (oculto) -->
-            </div>        
+                <i class="fas fa-bars" id="hamburger-icon"></i>
+                <i class="fas fa-times" id="close-icon" style="display: none;"></i>
+            </div>
             <ul class="menu">
                 <li><a href="../index.html"><i class="fa-solid fa-store" style="color: #ffffff;"></i>LOJA</a></li>
-                <li><a href="../carrinho/"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>CARRINHO</a></li>
-                <li><a href="#"><i class="fa-solid fa-user" style="color: #ffffff;"></i>LOGIN</a></li>
+                <li><a href="../carrinho/"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>CARRINHO (<span id="qtd-carrinho">0</span>)</a></li>
+                <li><a href="#"><i class="fa-solid fa-user" style="color: #ffffff;"></i>INICIAR SESSÃO</a></li>
                 <li><a href="../admin/"><i class="fa-solid fa-screwdriver-wrench" style="color: #ffffff;"></i>ADMIN</a></li>
             </ul>
         </div>
     </header>
 
     <div class="linha-decorativa"></div>
-    
-    <div class="container">
-        <div class="wrapper">
-            <div class="title"><span>Cadastro de Usuário</span></div>
-            <form action="processa_cadastro.php" method="post">
-            
-                <div class="row">
-                    <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Nome" required>
+    <div class="body-conteudo">
+        <h3 style="text-align: center; color: white;" id="titulo-container">Cadastro:</h3>
+        <div class="container">
+            <div class="quatrado_login">
+                <div class="imagem-login">
+                    <img src="../media/icones/user.png">
                 </div>
-                <div class="row">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" placeholder="Email" required>
+                <div class="barrasdelogin">
+                    <div class="container-login">
+                        <i class="fa-solid fa-user icones-login"></i>
+                        <input type="text" placeholder="Nome" id="nome">
+                    </div>
+                    <div class="container-login">
+                        <i class="fa-solid fa-envelope icones-login"></i>
+                        <input type="email" placeholder="Email" id="email">
+                    </div>
+                    <div class="container-login">
+                        <i class="fa-solid fa-calendar icones-login"></i>
+                        <input type="date" placeholder="Data de Nascimento" id="data-nascimento">
+                    </div>
+                    <div class="container-login">
+                        <i class="fa-solid fa-lock icones-login"></i>
+                        <input type="password" placeholder="Senha" id="senha">
+                    </div>
                 </div>
-                <div class="row">
-                    <i class="fas fa-calendar"></i>
-                    <input type="date" placeholder="Data de Nascimento" required>
+                <div class="container-botao">
+                    <button id="botaoregistrar" type="submit">Registrar</button>
                 </div>
-                <div class="row">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Senha" required>
-                </div>
-                <div class="row button">
-                    <input type="submit" value="Cadastrar">
-                </div>
-                <div class="signup-link">Já é um membro? <a href="login\index.html">Faça o login</a></div>
-            </form>
+            </div>   
+            <!-- os cards são inseridos aqui -->
         </div>
     </div>
 </body>
