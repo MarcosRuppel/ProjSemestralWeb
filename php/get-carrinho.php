@@ -1,7 +1,7 @@
 <?php
 $con = mysqli_connect("localhost:3306", "root", "PUC@1234", "website");
 
-$query = "SELECT carrinho.produto_id, produto.nome, carrinho.quantidade, produto.preco, produto.imagem FROM carrinho INNER JOIN produto ON carrinho.produto_id = produto.id;";
+$query = "SELECT carrinho.produto_id, carrinho.quantidade, carrinho.valor_total, produto.nome, produto.preco, produto.imagem FROM carrinho INNER JOIN produto ON carrinho.produto_id = produto.id;";
 
 
 $resultado = mysqli_query($con, $query);

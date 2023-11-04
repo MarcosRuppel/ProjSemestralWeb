@@ -1,18 +1,18 @@
+// executa ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
-    updNumItensMenu(); // atualiza a quantidade do carrinho ao carregar a página
+    loadCart(); // carrega o carrinho do banco
+    updNumItensMenu(); // atualiza a quantidade no menu
 });
 
 // construtor dos cards dos produtos no carrinho
-window.onload = async function(){
-
+async function loadCart(){
     var resultado = await fetch("../php/get-carrinho.php", {
         method: "GET"
     });
-
     var conteudo = await resultado.json();
 
+    var carrinho = ""; 
     for(var i = 0; i < conteudo.length; i++) {
-
         var template =
         `<div class="card-produto">
             <div class="detalhes-produto">
@@ -26,14 +26,24 @@ window.onload = async function(){
                     <span class="qtd">${conteudo[i].quantidade}</span>
                     <button class="aumentar-qtd">+</button>
                 </div>
-                <p class="total">R$<span id="valor-tot">10.00</span></p>
+                <p class="total">R$<span id="valor-tot">${conteudo[i].valor_total}</span></p>
                 <div class="botao-remover">
                     <button type="button" class="remove-prod" onclick=removeFromCart(${conteudo[i].produto_id})>Remover</button>
                 </div>
             </div>
         </div>`;
 
-        document.getElementById('carrinho').innerHTML += template;
+        carrinho += template;
+    }
+    
+    if(carrinho == "") { // caso não haja nada no carrinho
+        document.getElementById('carrinho').innerHTML = 
+            `<div class="card-produto">
+                <p class="detalhes-produto-vazio">Não há produtos no carrinho...</p>
+            </div>`;
+    } 
+    else {
+        document.getElementById('carrinho').innerHTML = carrinho;
     }
 }
 
@@ -49,6 +59,7 @@ async function addToCart(produto_id) {
     const resultado = await adicionar.text();
     mostrarSnackbar(resultado);
     updNumItensMenu();
+    loadCart();
 }
 
 // função de remover produtos do carrinho
@@ -63,6 +74,7 @@ async function removeFromCart(produto_id) {
     const resultado = await remover.text();
     mostrarSnackbar(resultado);
     updNumItensMenu();
+    loadCart();
 }
 
 // função para sincronizar a quantidade de itens no carrinho consultando no BD
@@ -86,7 +98,7 @@ async function getCartTotal() {
 }
 
 // Notificacao em toast (snackbar)
-function mostrarSnackbar(mensagem){
+function mostrarSnackbar(mensagem) {
     s = document.getElementById('snackbar');
     s.innerHTML = mensagem;
     s.className = "show";
