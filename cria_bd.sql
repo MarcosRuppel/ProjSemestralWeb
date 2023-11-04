@@ -18,9 +18,10 @@ CREATE TABLE clientes (
     
 CREATE TABLE carrinho (
 	id INT auto_increment PRIMARY KEY,
-    cliente_id INT NOT NULL,
+    cliente_id INT NOT NULL DEFAULT 1,
     produto_id INT NOT NULL,
     quantidade INT NOT NULL,
+    valor_total DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
     FOREIGN KEY (cliente_id) REFERENCES clientes(id),
     FOREIGN KEY (produto_id) REFERENCES produto(id));
     
@@ -57,4 +58,26 @@ END;
 //
 DELIMITER ;
 
-SELECT totalCarrinho();	
+DELIMITER //
+CREATE TRIGGER calcula_valor_total
+BEFORE INSERT ON carrinho
+FOR EACH ROW
+BEGIN
+	DECLARE valor_unitario DECIMAL(10, 2);
+    SELECT preco INTO valor_unitario FROM produto WHERE id = NEW.produto_id;
+    SET NEW.valor_total = NEW.quantidade * valor_unitario;
+END;
+//
+DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER atualizar_valor_total
+BEFORE UPDATE ON carrinho
+FOR EACH ROW
+BEGIN
+	DECLARE valor_unitario DECIMAL(10, 2);
+    SELECT preco INTO valor_unitario FROM produto WHERE id = NEW.produto_id;
+    SET NEW.valor_total = NEW.quantidade * valor_unitario;
+END;
+//
+DELIMITER ;

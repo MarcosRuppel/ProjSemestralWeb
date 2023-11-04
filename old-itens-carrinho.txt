@@ -1,0 +1,18 @@
+                `<div class="card-produto">
+                    <div class="detalhes-produto">
+                        <div class="img-produto">
+                            <img src="../media/images/molas-eibach-golf-audi-2016-2021.png">
+                        </div>
+                        <p class="nome-prod">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi saepe soluta eius facilis tempore minima autem doloribus, iure voluptatum vero quaerat nisi sunt explicabo, maiores cumque ipsum perspiciatis rerum dolores.</p>
+                        <p class="val-unit">R$<span id="valor-unit">10.00</span></p>
+                        <div class="qtde-produto">
+                            <button class="reduzir-qtd">-</button>
+                            <span class="qtd">1</span>
+                            <button class="aumentar-qtd">+</button>
+                        </div>
+                        <p class="total">R$<span id="valor-tot">10.00</span></p>
+                        <div class="botao-remover">
+                            <button class="remove-prod">Remover</button>
+                        </div>
+                    </div>
+                </div>`

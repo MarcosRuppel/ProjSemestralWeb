@@ -3,7 +3,7 @@
 $con = mysqli_connect("localhost:3306", "root", "PUC@1234", "website");
 
 if (mysqli_connect_errno()) {
-    echo "Falha na conexão com o banco de dados: " . mysqli_connect_error();
+    echo "Falha na conexão com o banco de dados!";
     exit;
 }
 
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (mysqli_query($con, $updateQuery)){
                 echo json_encode("Quantidade atualizada com sucesso no carrinho.");
             } else {
-                echo json_encode("Falha ao atualizar a quantidade do produto no carrinho: " . mysqli_error($con));
+                echo json_encode("Falha ao atualizar a quantidade do produto no carrinho!");
             }
         } else {
             // Insira o produto no carrinho se não estiver lá
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (mysqli_query($con, $insertQuery)){
                 echo json_encode("Produto adicionado com sucesso ao carrinho.");
             } else {
-                echo json_encode("Falha ao adicionar o produto ao carrinho: " . mysqli_error($con));
+                echo json_encode("Falha ao adicionar o produto ao carrinho!");
             };
         }
         
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (mysqli_query($con, $deleteQuery)){
             echo json_encode("Produto removido com sucesso do carrinho.");
         } else {
-            echo json_encode("Falha ao remover o produto do carrinho: " . mysqli_error($con));
+            echo json_encode("Falha ao remover o produto do carrinho!");
         };
     
         mysqli_close($con);
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $cartData = array();
     
         // Consulta para obter os produtos no carrinho
-        $query = "SELECT carrinho.produto_id, produto.nome, carrinho.quantidade, produto.preco FROM carrinho INNER JOIN produto ON carrinho.produto_id = produto.id";
+        $query = "SELECT carrinho.produto_id, produto.nome, carrinho.quantidade, produto.preco, produto.imagem FROM carrinho INNER JOIN produto ON carrinho.produto_id = produto.id";
         $result = mysqli_query($con, $query);
     
         while ($row = mysqli_fetch_assoc($result)) {

@@ -1,7 +1,3 @@
-/* * {
-    box-sizing: content-box;
-} */
-
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #480400;
@@ -19,84 +15,146 @@ div {
 
 /* Conteúdo da página*/
 .container {
+    color:#FFF;
+    height: fit-content;
     margin: 0 auto;
-    padding: 20px;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
     background-color: #1a1a1a;
 }
-.card {
-    width: 250px;
-    height: 400px;
+
+.barra-titulo {
+    display: flex;
+    height: 50px;
+    width: 100%;
+    background-color:#1a1a1a;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+.col-nome {
+    width: 60%;
+}
+.col-valor-unit {
+    width: 12%;
+}
+.col-qtd {
+    width: 10%;
+}
+.col-valor-total {
+    width: 12%;
+}
+.container-carrinho {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 900px;
+    height: fit-content;
+    padding: 10px;
+    margin: 10px;
+    background-color: #3e3e3e;
+    box-shadow: 2px 3px 6px -2px rgba(0,0,0,.59);
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+.resumo-carrinho {
+    justify-content: center;
+    min-width: 250px;
+    height: fit-content;
+    padding: 10px;
+    margin: 10px;
     background-color:#3e3e3e;
     box-shadow: 2px 3px 6px -2px rgba(0,0,0,.59);
     border: 1px solid #000000;
     border-radius: 5px;
-    padding: 10px;
-    margin: 20px;
     text-align: center;
+}
+.resumo-carrinho button {
+    width:250px;
+    height:50px;
+    border:none;
+    border-radius:5px;
+    color:#FFF;
+    font-size:large;
+    background-color: green;
+}
+
+.card-produto {
+    display: flex;
+    width: 100%;
+    height: 120px;
+    border-top: 1px solid #e6ab00;
+    border-bottom: 1px solid #e6ab00;
+}
+.card-produto:hover {
+    background-color: rgba(0,0,0,.59);
     transition-duration: 0.5s;
 }
-.card:hover {
-    /* background-color: #66534e; */
-    border: 1px solid #ff2800;
-    box-shadow: 2px 3px 6px 2px rgba(0,0,0,.59);
-}
-.img-prod{
-    width: 100%;
-    height: 50%;
-}
-.img-prod img{
-    max-height: 90%;
-    max-width: 100%;
-}
-.info-prod {
+
+.detalhes-produto {
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    color: white;
-    height: 40%;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
 }
-.nome-prod {
+.img-produto{
+    width: 10%;
+    margin: auto;
+}
+.img-produto img{
+    max-width: 80%;
+}
+.nome-prod{
+    width: 50%;
+    font-size:auto;
+    margin: auto;
+}
+.val-unit{
+    width: 12.5%;
+    margin: auto;
+    text-align: center;
+}
+.qtde-produto {
+    width: 10%;
+    margin: auto;
+}
+.total{
+    width: 12.5%;
+    margin: auto;
+    text-align: center;
+    font-weight: bold;
+}
+.botao-remover{
+    width: 5%;
+    margin: auto;
+}
+
+.aumentar-qtd, .reduzir-qtd{
+    height: 32px;
+    width: 32px;
+    color: #fff;
+    background-color: #007bff;
     font-weight: bold;
     font-size: large;
-}
-.specs-prod {
-    margin-top: 5px;
-    font-size: small;
-}
-.preco-prod {
-    font-size: x-large;
-    color: #FFF200;
-    margin-top: auto;
-    margin-bottom: 5px;
-    align-items: bottom;
-}
-.botao-carrinho {
-    width: 100%;
-    height: 10%;
-}
-.botao-carrinho button{
-    border-style: none;
-    background-color: green;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
-.botao-carrinho button:hover {
-    background-color: rgb(0, 170, 0);
+.remove-prod{
+    height: 32px;
+    width: 32px;
+    border-radius: 5px;
+    border:none;
+    background-color: #ba0000;
+    cursor: pointer;
 }
-.botao-carrinho i {
-    font-size: 20px;
+.icone-remover{
+    color: #fff;
+    font-size: 16px;
 }
+
+
+
+
 
 /* cabeçalho e navegação*/
 header {
@@ -136,37 +194,6 @@ header {
     height: 2px;
     background-image: linear-gradient(to right, #fff200, #e6ab00, #bc6b0b, #853411, #480502);
 }
-
-
-/* barra de pesquisa */
-.buscador {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: rgba(75, 75, 75, 0.5);
-    padding: 10px;
-    margin: 0 10px;
-    border-radius: 5px;
-}
-.buscador:hover {
-    background-color: rgb(75, 75, 75);
-}
-.search-icon {
-    padding-right: 10px; /* Adiciona espaço à direita do ícone de busca */
-}
-.search-icon i {
-    font-size: 20px; /* Redimensiona o ícone de busca */
-}
-.buscador input {
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid #24b6ff;
-    color: white;
-    padding: 5px;
-    width: 100%;
-    outline: none;
-}
-
 
 /* Menu de hamburguer */
 .menu-toggle {
@@ -218,18 +245,11 @@ header {
     .logo-loja img{
         height: 60px;
     }
-    .buscador{
-        margin: 0 5px;
-    }
     .menu-toggle{
         margin: 0 15px;
     }
     .menu{
         top: 75px;
-    }
-    .card{
-        margin: 5px;
-        height: 350px;
     }
 }
 
@@ -244,22 +264,10 @@ header {
     .logo-loja img{
         height: 45px;
     }
-    .buscador{
-        margin: 0 5px;
-        padding: 5px;
-    }
     .menu-toggle{
         margin: 0 15px;
     }
     .menu{
         top: 60px;
-    }
-    .card{
-        margin: 5px;
-        height: 300px;
-        width: 275px;
-    }
-    .nome-prod {
-        font-size: medium;
     }
 }

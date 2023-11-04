@@ -1,10 +1,62 @@
+// executa ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
-    atualizaQtdCarrinho(); // atualiza a quantidade do carrinho ao carregar a página
+    updNumItensMenu(); // atualiza a quantidade no menu
+    loadCart(); // carrega o carrinho do banco
 });
+
+// construtor dos cards dos produtos no carrinho
+async function loadCart(){
+    var resultado = await fetch("../php/get-carrinho.php", {
+        method: "GET"
+    });
+    var conteudo = await resultado.json();
+
+    var carrinho = ""; 
+    for(var i = 0; i < conteudo.length; i++) {
+        var template =
+        `<div class="card-produto">
+            <div class="detalhes-produto">
+                <div class="img-produto">
+                    <img src="../media/images/${conteudo[i].imagem}">
+                </div>
+                <p class="nome-prod">${conteudo[i].nome}</p>
+                <p class="val-unit">R$<span id="valor-unit">${conteudo[i].preco}</span></p>
+                <div class="qtde-produto">
+                    <button class="reduzir-qtd">-</button>
+                    <span class="qtd">${conteudo[i].quantidade}</span>
+                    <button class="aumentar-qtd">+</button>
+                </div>
+                <p class="total">R$<span id="valor-tot">${conteudo[i].valor_total}</span></p>
+                <div class="botao-remover">
+                    <button type="button" class="remove-prod" onclick=removeFromCart(${conteudo[i].produto_id})><i class="fa-solid fa-trash icone-remover"></i></button>
+                </div>
+            </div>
+        </div>`;
+
+        carrinho += template;
+    }
+    
+    if(carrinho == "") { // caso não haja nada no carrinho
+        document.getElementById('carrinho').innerHTML = 
+        `<div class="card-produto">
+            <div class="detalhes-produto">
+                <div class="img-produto"></div>
+                <p class="nome-prod">Não há produtos no carrinho.</p>
+                <p class="val-unit"></p>
+                <div class="qtde-produto"></div>
+                <p class="total"></p>
+                <div class="botao-remover"></div>
+            </div>
+        </div>`;
+    } 
+    else {
+        document.getElementById('carrinho').innerHTML = carrinho;
+    }
+}
 
 // função de adicionar produtos ao carrinho
 async function addToCart(produto_id) {
-    var adicionar = await fetch('php/carrinho.php', {
+    var adicionar = await fetch('../php/carrinho.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -12,13 +64,14 @@ async function addToCart(produto_id) {
         body: `add_to_cart=1&produto_id=${produto_id}`,
     });
     const resultado = await adicionar.text();
-    alert(resultado);
-    atualizaQtdCarrinho();
+    mostrarSnackbar(resultado);
+    updNumItensMenu();
+    loadCart();
 }
 
 // função de remover produtos do carrinho
 async function removeFromCart(produto_id) {
-    var remover = await fetch('php/carrinho.php', {
+    var remover = await fetch('../php/carrinho.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -26,24 +79,20 @@ async function removeFromCart(produto_id) {
         body: `remove_from_cart=1&produto_id=${produto_id}`,
     });
     const resultado = await remover.text();
-    alert(resultado);
-    atualizaQtdCarrinho();
+    mostrarSnackbar(resultado);
+    updNumItensMenu();
+    loadCart();
 }
 
-// função de recuperar o carrinho do banco
-async function getCartItems() {
-    await fetch('php/carrinho.php?get_cart=1', {
-        method: 'GET',
-    }).then(response => {
-        return response.json();
-    }).then(data => {
-        console.log(data);
-    });
+// função para sincronizar a quantidade de itens no carrinho consultando no BD
+async function updNumItensMenu(){
+    const contador = document.getElementById('qtd-carrinho');
+    contador.innerHTML = await getCartTotal();
 }
 
 // função de recuperar a qtde de itens no carrinho
 async function getCartTotal() {
-    const response = await fetch('php/carrinho.php?get_total', {
+    const response = await fetch('../php/carrinho.php?get_total', {
         method: 'GET',
     });
 
@@ -54,8 +103,11 @@ async function getCartTotal() {
         return 0;
     }
 }
-// função para sincronizar a quantidade de itens no carrinho consultando no BD
-async function atualizaQtdCarrinho(){
-    const contador = document.getElementById('qtd-carrinho');
-    contador.innerHTML = await getCartTotal();
+
+// Notificacao em toast (snackbar)
+function mostrarSnackbar(mensagem) {
+    s = document.getElementById('snackbar');
+    s.innerHTML = mensagem;
+    s.className = "show";
+    setTimeout(function(){ s.className = s.className.replace("show", ""); }, 3000);
 }
