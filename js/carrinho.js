@@ -1,7 +1,7 @@
 // executa ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
-    loadCart(); // carrega o carrinho do banco
     updNumItensMenu(); // atualiza a quantidade no menu
+    loadCart(); // carrega o carrinho do banco
 });
 
 // construtor dos cards dos produtos no carrinho
@@ -28,7 +28,7 @@ async function loadCart(){
                 </div>
                 <p class="total">R$<span id="valor-tot">${conteudo[i].valor_total}</span></p>
                 <div class="botao-remover">
-                    <button type="button" class="remove-prod" onclick=removeFromCart(${conteudo[i].produto_id})>Remover</button>
+                    <button type="button" class="remove-prod" onclick=removeFromCart(${conteudo[i].produto_id})><i class="fa-solid fa-trash icone-remover"></i></button>
                 </div>
             </div>
         </div>`;
@@ -38,9 +38,16 @@ async function loadCart(){
     
     if(carrinho == "") { // caso não haja nada no carrinho
         document.getElementById('carrinho').innerHTML = 
-            `<div class="card-produto">
-                <p class="detalhes-produto-vazio">Não há produtos no carrinho...</p>
-            </div>`;
+        `<div class="card-produto">
+            <div class="detalhes-produto">
+                <div class="img-produto"></div>
+                <p class="nome-prod">Não há produtos no carrinho.</p>
+                <p class="val-unit"></p>
+                <div class="qtde-produto"></div>
+                <p class="total"></p>
+                <div class="botao-remover"></div>
+            </div>
+        </div>`;
     } 
     else {
         document.getElementById('carrinho').innerHTML = carrinho;

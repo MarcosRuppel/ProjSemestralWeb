@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/snackbar.css" />
     <link rel="stylesheet" href="../resources/fontawesome/css/all.css" />
     <script src="../js/menu.js"></script>
-    <script src="../js/carrinho.js"></script>
+    <script defer src="../js/carrinho.js"></script>
     <title>AutoShop - Seu carrinho</title>
 </head>
 <body>
@@ -35,17 +35,24 @@
     <div class="body-conteudo">
         <h3 style="text-align: center; color: white;" id="titulo-container">Seu carrinho de compras:</h3>
         <div class="container">
-            <div class="container-carrinho" id="carrinho">
-                <!-- os cards dos itens do carrinho serão inseridos aqui -->
-            </div>
-            <div class="container-resumo">
-                <div class="resumo-carrinho">
-                    <h2>Resumo do Carrinho</h2>
-                    <p>Subtotal: R$ <span id="subtotal">10.00</span></p>
-                    <p>Frete: R$ <span id="shipping">0.00</span></p>
-                    <p>Total: R$ <span id="total">10.00</span></p>
-                    <button id="checkout" onclick="checkout()">FINALIZAR COMPRA</button>
+            <div class="container-carrinho">
+                <div class="barra-titulo">
+                    <p class="col-nome">Item</p>
+                    <p class="col-valor-unit">Valor Unit.</p>
+                    <p class="col-qtd">Qtde.</p>
+                    <p class="col-valor-total">Total</p>
                 </div>
+                <div id="carrinho">
+                    <!-- os cards dos itens do carrinho serão inseridos aqui -->
+                </div>
+            </div>
+
+            <div class="resumo-carrinho">
+                <h2>Resumo do Carrinho</h2>
+                <p>Subtotal: R$ <span id="subtotal"></span></p>
+                <p>Frete: R$ <span id="shipping">20.00</span></p>
+                <p style="color:red;font-size:larger;">Total: R$ <span id="total">100.00</span></p>
+                <button id="checkout" onclick="checkout()"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>  FINALIZAR COMPRA</button>
             </div>
         </div>
     </div>

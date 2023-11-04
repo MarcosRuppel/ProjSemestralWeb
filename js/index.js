@@ -1,7 +1,7 @@
 // executa ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
-    loadProducts(); // carrega os cards do banco
     updNumItensMenu(); // atualiza a quantidade no menu
+    loadProducts(); // carrega os cards do banco
 });
 
 async function loadProducts(){
