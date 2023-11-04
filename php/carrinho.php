@@ -13,12 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['add_to_cart'])) {
         $produto_id = $_POST['produto_id'];
         
-        // Verificar se o produto já está no carrinho (no banco de dados)
+        // Verifica se o produto já está no carrinho (no banco de dados)
         $query = "SELECT * FROM carrinho WHERE produto_id = $produto_id";
         $result = mysqli_query($con, $query);
         
         if (mysqli_num_rows($result) > 0) {
-            // Atualize a quantidade se o produto já estiver no carrinho
+            // Atualiza a quantidade se o produto já estiver no carrinho
             $updateQuery = "UPDATE carrinho SET quantidade = quantidade + 1 WHERE produto_id = $produto_id";
             if (mysqli_query($con, $updateQuery)){
                 echo json_encode("Quantidade atualizada com sucesso no carrinho.");
@@ -37,6 +37,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         mysqli_close($con);
     }
+
+    // Reduzir a qtd de um produto no carrinho
+    elseif (isset($_POST['reduce_from_cart'])) {
+        $produto_id = $_POST['produto_id'];
+
+        // Verificar a quantidade atual do produto no carrinho
+        $query = "SELECT quantidade FROM carrinho WHERE produto_id = $produto_id";
+        $result = mysqli_query($con, $query);
+
+        if ($result) {
+            $row = mysqli_fetch_assoc($result);
+            $quantidade_atual = $row['quantidade'];
+
+            // Verificar se a quantidade é maior que 1 antes de reduzir
+            if ($quantidade_atual > 1) {
+                // Reduzir a quantidade em 1 no banco de dados
+                $updateQuery = "UPDATE carrinho SET quantidade = quantidade - 1 WHERE produto_id = $produto_id";
+                if (mysqli_query($con, $updateQuery)) {
+                    echo json_encode("Quantidade atualizada com sucesso no carrinho.");
+                } else {
+                    echo json_encode("Falha ao atualizar a quantidade no carrinho.");
+                }
+            } else {
+                echo json_encode("Para remover um item, utilize o botao de remover.");
+            }
+        } else {
+            echo json_encode("Falha ao obter a quantidade atual do produto.");
+        }
+
+        mysqli_close($con);
+    }
+
     
     // Remover produto do carrinho
     elseif (isset($_POST['remove_from_cart'])) {

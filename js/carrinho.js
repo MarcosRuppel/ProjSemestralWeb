@@ -22,13 +22,13 @@ async function loadCart(){
                 <p class="nome-prod">${conteudo[i].nome}</p>
                 <p class="val-unit">R$<span id="valor-unit">${conteudo[i].preco}</span></p>
                 <div class="qtde-produto">
-                    <button class="reduzir-qtd">-</button>
+                    <button type="button" class="reduzir-qtd" onclick=reduceFromCart(${conteudo[i].produto_id})>-</button>
                     <span class="qtd">${conteudo[i].quantidade}</span>
-                    <button class="aumentar-qtd">+</button>
+                    <button type="button" class="aumentar-qtd" onclick=addToCart(${conteudo[i].produto_id})>+</button>
                 </div>
                 <p class="total">R$<span id="valor-tot">${conteudo[i].valor_total}</span></p>
                 <div class="botao-remover">
-                    <button type="button" class="remove-prod" onclick=removeFromCart(${conteudo[i].produto_id})><i class="fa-solid fa-trash icone-remover"></i></button>
+                    <button type="button" class="remove-prod" onclick=deleteFromCart(${conteudo[i].produto_id})><i class="fa-solid fa-trash icone-remover"></i></button>
                 </div>
             </div>
         </div>`;
@@ -40,12 +40,12 @@ async function loadCart(){
         document.getElementById('carrinho').innerHTML = 
         `<div class="card-produto">
             <div class="detalhes-produto">
-                <div class="img-produto"></div>
+                <div class="img-produto"> </div>
                 <p class="nome-prod">Não há produtos no carrinho.</p>
-                <p class="val-unit"></p>
-                <div class="qtde-produto"></div>
-                <p class="total"></p>
-                <div class="botao-remover"></div>
+                <p class="val-unit"> </p>
+                <div class="qtde-produto"> </div>
+                <p class="total"> </p>
+                <div class="botao-remover"> </div>
             </div>
         </div>`;
     } 
@@ -69,14 +69,29 @@ async function addToCart(produto_id) {
     loadCart();
 }
 
-// função de remover produtos do carrinho
-async function removeFromCart(produto_id) {
+// função de retirar produtos do carrinho
+async function deleteFromCart(produto_id) {
     var remover = await fetch('../php/carrinho.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: `remove_from_cart=1&produto_id=${produto_id}`,
+    });
+    const resultado = await remover.text();
+    mostrarSnackbar(resultado);
+    updNumItensMenu();
+    loadCart();
+}
+
+// função de diminuir a qtd de produtos do carrinho
+async function reduceFromCart(produto_id) {
+    var remover = await fetch('../php/carrinho.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `reduce_from_cart=1&produto_id=${produto_id}`,
     });
     const resultado = await remover.text();
     mostrarSnackbar(resultado);
