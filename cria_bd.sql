@@ -2,7 +2,7 @@
 -- do projeto semestral de Programação Web.
 -- Autoria: Marcos Paulo Ruppel - Turma 2U
 
-CREATE DATABASE website;
+CREATE DATABASE website DEFAULT CHARACTER SET utf8mb4;
 
 USE website;
 
@@ -14,9 +14,10 @@ CREATE TABLE produto (
     estoque INT NOT NULL,
     imagem VARCHAR(255) NULL);
     
-CREATE TABLE clientes (
+CREATE TABLE cliente (
 	id INT NOT NULL auto_increment PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
+    data_nasc DATE NULL,
     email VARCHAR(255) NOT NULL,
     senha VARCHAR(10) NOT NULL);
     
@@ -26,18 +27,27 @@ CREATE TABLE carrinho (
     produto_id INT NOT NULL,
     quantidade INT NOT NULL,
     valor_total DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
-    FOREIGN KEY (cliente_id) REFERENCES clientes(id),
+    FOREIGN KEY (cliente_id) REFERENCES cliente(id),
     FOREIGN KEY (produto_id) REFERENCES produto(id));
+
+CREATE TABLE pagamento  (
+    id INT NOT NULL PRIMARY KEY,
+    cliente_id INT NOT NULL,
+    valor_total DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    valor_pago DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
+    forma_pgto VARCHAR(45) NULL,
+    FOREIGN KEY (cliente_id) REFERENCES website.cliente(id)
+);
     
-CREATE TABLE administradores (
+CREATE TABLE admins (
 	id INT NOT NULL PRIMARY KEY auto_increment,
     cliente_id INT NOT NULL,
-    FOREIGN KEY (cliente_id) REFERENCES clientes(id));
+    FOREIGN KEY (cliente_id) REFERENCES cliente(id));
 
-INSERT INTO clientes (id, nome, email, senha) VALUES 
+INSERT INTO cliente (id, nome, email, senha) VALUES
 	(1, 'Administrador', 'admin@nodomain.com', 'secret');
     
-INSERT INTO administradores (id, cliente_id) VALUES (NULL, 1);
+INSERT INTO admins (id, cliente_id) VALUES (NULL, 1);
     
 INSERT into produto (nome, descricao, preco, estoque, imagem) VALUES
 	('JOGO RODAS TSW ASAN ARO 17', 'Jogo de 4 Rodas TSW Modelo ASAN Aro 17x7 (5X100) ET40', 3419.00 , 5, '1.png'),
