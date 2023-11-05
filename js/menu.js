@@ -1,9 +1,9 @@
-// Menu de hamburguer
+// Menu de hamburger
 function toggleMenu() {
-    var menu = document.querySelector('.menu');
-    var menuItems = document.querySelectorAll('.menu li');
-    var hamburgerIcon = document.getElementById('hamburger-icon');
-    var closeIcon = document.getElementById('close-icon');
+    let menu = document.querySelector('.menu');
+    let menuItems = document.querySelectorAll('.menu li');
+    let hamburgerIcon = document.getElementById('hamburger-icon');
+    let closeIcon = document.getElementById('close-icon');
 
     if (menu.style.width === '0px' || menu.style.width === '') {
         menu.style.boxShadow = '-5px 5px 10px 5px rgba(0,0,0,0.5)';

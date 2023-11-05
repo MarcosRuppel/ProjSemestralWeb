@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./carrinho.css" />
+    <link rel="stylesheet" href="../css/carrinho.css" />
+    <link rel="stylesheet" href="../css/menu.css" />
     <link rel="stylesheet" href="../css/snackbar.css" />
     <link rel="stylesheet" href="../resources/fontawesome/css/all.css" />
     <script src="../js/menu.js"></script>
@@ -14,7 +15,7 @@
     <header>
         <div class="header-container">
             <div class="logo-loja">
-                <a href="../index.html"><img src="../media/images/logo.png" /></a>
+                <a href="../index.html"><img src="../media/images/logo.png" alt="Logo AutoShop"/></a>
             </div>
         </div>
         <div class="header-menu">
@@ -49,9 +50,9 @@
 
             <div class="resumo-carrinho">
                 <h2>Resumo do Carrinho</h2>
-                <p>Subtotal: R$ <span id="subtotal"></span></p>
+                <p>Subtotal: R$ <span id="subtotal">0.00</span></p>
                 <p>Frete: R$ <span id="shipping">20.00</span></p>
-                <p style="color:red;font-size:larger;">Total: R$ <span id="total">100.00</span></p>
+                <p style="color:red;font-size:larger;">Total: R$ <span id="total">0.00</span></p>
                 <button id="checkout" onclick="checkout()"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>  FINALIZAR COMPRA</button>
             </div>
         </div>

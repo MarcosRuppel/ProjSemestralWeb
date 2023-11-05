@@ -1,23 +1,25 @@
 // executa ao carregar a página
-document.addEventListener('DOMContentLoaded', () => {
-    updNumItensMenu(); // atualiza a quantidade no menu
-    loadCart(); // carrega o carrinho do banco
-});
+document.addEventListener('DOMContentLoaded',
+    () => {
+        updNumItensMenu().then(); // atualiza a quantidade no menu
+        loadCart().then(); // carrega o carrinho do banco
+    });
 
 // construtor dos cards dos produtos no carrinho
 async function loadCart(){
-    var resultado = await fetch("../php/get-carrinho.php", {
+    let resultado = await fetch("../php/get-carrinho.php", {
         method: "GET"
     });
-    var conteudo = await resultado.json();
+    let conteudo = await resultado.json();
 
-    var carrinho = ""; 
+    let carrinho = "";
+    let subtotal = 0;
     for(var i = 0; i < conteudo.length; i++) {
-        var template =
-        `<div class="card-produto">
+        let template =
+            `<div class="card-produto">
             <div class="detalhes-produto">
                 <div class="img-produto">
-                    <img src="../media/images/${conteudo[i].imagem}">
+                    <img alt="Foto do produto" src="../media/images/${conteudo[i].imagem}">
                 </div>
                 <p class="nome-prod">${conteudo[i].nome}</p>
                 <p class="val-unit">R$<span id="valor-unit">${conteudo[i].preco}</span></p>
@@ -34,9 +36,10 @@ async function loadCart(){
         </div>`;
 
         carrinho += template;
+        subtotal += parseFloat(conteudo[i].valor_total);
     }
     
-    if(carrinho == "") { // caso não haja nada no carrinho
+    if(carrinho === "") { // caso não haja nada no carrinho
         document.getElementById('carrinho').innerHTML = 
         `<div class="card-produto">
             <div class="detalhes-produto">
@@ -52,11 +55,17 @@ async function loadCart(){
     else {
         document.getElementById('carrinho').innerHTML = carrinho;
     }
+    // Atualizar o subtotal no HTML
+    document.getElementById('subtotal').textContent = subtotal.toFixed(2); // duas casas decimais
+    // Atualizar o valor total (subtotal + frete) no HTML
+    const frete = 20.00;
+    const total = subtotal+frete;
+    document.getElementById('total').textContent = total.toFixed(2);
 }
 
 // função de adicionar produtos ao carrinho
 async function addToCart(produto_id) {
-    var adicionar = await fetch('../php/carrinho.php', {
+    let adicionar = await fetch('../php/carrinho.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -65,13 +74,13 @@ async function addToCart(produto_id) {
     });
     const resultado = await adicionar.text();
     mostrarSnackbar(resultado);
-    updNumItensMenu();
-    loadCart();
+    await updNumItensMenu();
+    await loadCart();
 }
 
 // função de retirar produtos do carrinho
 async function deleteFromCart(produto_id) {
-    var remover = await fetch('../php/carrinho.php', {
+    let remover = await fetch('../php/carrinho.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -80,13 +89,13 @@ async function deleteFromCart(produto_id) {
     });
     const resultado = await remover.text();
     mostrarSnackbar(resultado);
-    updNumItensMenu();
-    loadCart();
+    await updNumItensMenu();
+    await loadCart();
 }
 
 // função de diminuir a qtd de produtos do carrinho
 async function reduceFromCart(produto_id) {
-    var remover = await fetch('../php/carrinho.php', {
+    let remover = await fetch('../php/carrinho.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -95,8 +104,8 @@ async function reduceFromCart(produto_id) {
     });
     const resultado = await remover.text();
     mostrarSnackbar(resultado);
-    updNumItensMenu();
-    loadCart();
+    await updNumItensMenu();
+    await loadCart();
 }
 
 // função para sincronizar a quantidade de itens no carrinho consultando no BD
@@ -121,7 +130,7 @@ async function getCartTotal() {
 
 // Notificacao em toast (snackbar)
 function mostrarSnackbar(mensagem) {
-    s = document.getElementById('snackbar');
+    let s = document.getElementById('snackbar');
     s.innerHTML = mensagem;
     s.className = "show";
     setTimeout(function(){ s.className = s.className.replace("show", ""); }, 3000);

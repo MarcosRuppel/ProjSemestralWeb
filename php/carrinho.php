@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo json_encode("Produto adicionado com sucesso ao carrinho.");
             } else {
                 echo json_encode("Falha ao adicionar o produto ao carrinho!");
-            };
+            }
         }
         
         mysqli_close($con);
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo json_encode("Produto removido com sucesso do carrinho.");
         } else {
             echo json_encode("Falha ao remover o produto do carrinho!");
-        };
+        }
     
         mysqli_close($con);
     }
@@ -88,23 +88,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    // Obter carrinho (retornar em formato JSON)
-    if (isset($_GET['get_cart'])) {
-        $cartData = array();
-    
-        // Consulta para obter os produtos no carrinho
-        $query = "SELECT carrinho.produto_id, produto.nome, carrinho.quantidade, produto.preco, produto.imagem FROM carrinho INNER JOIN produto ON carrinho.produto_id = produto.id";
-        $result = mysqli_query($con, $query);
-    
-        while ($row = mysqli_fetch_assoc($result)) {
-            $cartData[] = $row;
-        }
-    
-        echo json_encode($cartData);
-    
-        mysqli_close($con);
-    }
-
     // Retornar a quantidade de itens
     if (isset($_GET['get_total'])) {
         // Consulta para obter a quantidade total no carrinho
