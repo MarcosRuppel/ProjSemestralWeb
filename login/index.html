@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../resources/fontawesome/css/all.css" />
     <link rel="stylesheet" href="estilo.css" />
     <script src="../js/index.js"></script>
+    <script defer src="../js/menu.js"></script>
+    <script src="index.js"></script>
     <title>Login</title>
 </head>
 <body>
@@ -45,15 +47,17 @@
                     </div>
                     <div class="container-senha">
                         <i class="fa-solid fa-lock icones-login"></i>
-                        <input type="text" placeholder="Senha" id="senha" />
-                    </div>
+                        <input type="password" placeholder="Senha" id="senha" />
+                        <button id="btn-senha" type="button" onclick="mostrarSenha()">
+                            <i class="fa-solid fa-eye olhosenha" aria-hidden="true"></i>
+                        </button>
                 </div>
                 <div class="container-botao">
                     <button id="botaologin" type="submit">Login</button>
-                    <button id="botaoregistrar" type="submit">Registrar</button>
+                    <form action="../cadastro/index.html">
+                        <button id="botaoregistrar" type="submit">Registrar</button>
                 </div>
             </div>   
-            <!-- os cards são inseridos aqui -->
         </div>
     </div>
 </body>

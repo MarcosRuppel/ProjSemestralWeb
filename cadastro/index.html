@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="../css/estilo.css" />
     <link rel="stylesheet" href="../resources/fontawesome/css/all.css" />
     <link rel="stylesheet" href="style.css" />
+    <script src="../js/menu.js"></script>
     <script src="../js/index.js"></script>
+    <script src="voltar.js"></script>
     <title>Cadastro</title>
 </head>
 <body>
@@ -35,6 +37,9 @@
         <h3 style="text-align: center; color: white;" id="titulo-container">Cadastro:</h3>
         <div class="container">
             <div class="quatrado_login">
+                <div class="seta-voltar">
+                    <button id="btnVoltar" type="submit" onclick="redirecionarParaNovaPagina()"><i class="fa-solid fa-arrow-left botao-voltar" aria-hidden="true"></i></button>
+                </div>
                 <div class="imagem-login">
                     <img src="../media/icones/user.png">
                 </div>
@@ -60,7 +65,6 @@
                     <button id="botaoregistrar" type="submit">Registrar</button>
                 </div>
             </div>   
-            <!-- os cards são inseridos aqui -->
         </div>
     </div>
 </body>
