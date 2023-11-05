@@ -16,4 +16,3 @@ mysqli_close($con);
 
 $json = json_encode($dados);
 echo $json;
-?>

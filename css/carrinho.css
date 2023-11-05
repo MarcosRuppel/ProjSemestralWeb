@@ -79,6 +79,11 @@ div {
     color:#FFF;
     font-size:large;
     background-color: green;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+.resumo-carrinho button:hover {
+    background-color: rgb(0, 170, 0);
 }
 
 .card-produto {
@@ -105,7 +110,6 @@ div {
 }
 .nome-prod{
     width: 50%;
-    font-size:auto;
     margin: auto;
 }
 .val-unit{
@@ -195,43 +199,6 @@ header {
     background-image: linear-gradient(to right, #fff200, #e6ab00, #bc6b0b, #853411, #480502);
 }
 
-/* Menu de hamburguer */
-.menu-toggle {
-    display: flex;
-    align-items: center;
-    font-size: 30px;
-    cursor: pointer;
-    color: white;
-    margin: 0 40px;
-}
-.menu {
-    list-style-type: none;
-    padding: 10px 0;
-    margin: 0;
-    background-color: #ba0000;
-    position: absolute;
-    top: 100px;
-    width: 0px;
-    height: 100%;
-    transition: 0.5s;
-    box-shadow: 0px 0px rgba(0,0,0,0.5); /* modificada no JS do menu */
-}
-.menu li {
-    padding: 25px;
-    text-align: center;
-    font-weight: bold;
-    display: none; /* inicialmente oculto */
-}
-.menu li i {
-    margin-right: 10px;
-}
-.menu a {
-    color: white;
-    text-decoration: none;
-}
-.content {
-    padding: 20px;
-}
 
 /* Propriedades para design responsivo */
 @media (max-width: 768px) {
