@@ -12,21 +12,25 @@ async function loadProducts(){
     let produtos = "";
     for(var i = 0; i < conteudo.length; i++) {
         let template =
-            `<div class="card">
-            <div class="img-prod">
+            `<div class="card-admin">
+            <div class="img-prod-admin">
                 <img alt="Foto do produto" src="../media/images/${conteudo[i].imagem}"/>
             </div>
-            <div class="info-prod">
-                <form id="form-produtos-${conteudo[i].id}">
-                    <input type="text" class="nome-prod" id="nome-prod-${conteudo[i].id}" name="novo_nome" value="${conteudo[i].nome}" placeholder="Nome">
-                    <input type="text" class="desc-prod" id="desc-prod-${conteudo[i].id}" name="nova_descricao" value="${conteudo[i].descricao}" placeholder="Descrição">
-                    <input type="number" class="preco-prod" id="preco-prod-${conteudo[i].id}" name="novo_preco" value="${conteudo[i].preco}" placeholder="Preço unit.">
-                    <input type="number" class="estoque-prod" id="estoque-prod-${conteudo[i].id}" name="novo_estoque" value="${conteudo[i].estoque}" placeholder="Qtd estoque">
+            <div class="info-prod-admin">
+                <form id="form-produtos-${conteudo[i].id}" class="form-produtos">
+                    <div class="nome-desc-container">
+                        <input type="text" class="nome-prod-admin" id="nome-prod-${conteudo[i].id}" name="novo_nome" value="${conteudo[i].nome}" placeholder="Nome">
+                        <input type="text" class="desc-prod-admin" id="desc-prod-${conteudo[i].id}" name="nova_descricao" value="${conteudo[i].descricao}" placeholder="Descrição">
+                    </div>
+                    <div class="valores-admin">
+                        <input type="number" class="preco-prod-admin" id="preco-prod-${conteudo[i].id}" name="novo_preco" value="${conteudo[i].preco}" placeholder="Preço unit.">
+                        <input type="number" class="estoque-prod-admin" id="estoque-prod-${conteudo[i].id}" name="novo_estoque" value="${conteudo[i].estoque}" placeholder="Qtd estoque">
+                    </div>
                 </form>
             </div>
             <div class="botoes-card">
-                <button type="button" id="botaomodificar-${conteudo[i].id}" onclick="updProd(${conteudo[i].id})">Modificar</button>
-                <button type="button" id="botaoremover-${conteudo[i].id}" onclick="delProd(${conteudo[i].id})">Remover</button>
+                <button type="button" class="botao-adm-modificar" id="botaomodificar-${conteudo[i].id}" onclick="updProd(${conteudo[i].id})">Modificar</button>
+                <button type="button" class="botao-adm-remover" id="botaoremover-${conteudo[i].id}" onclick="delProd(${conteudo[i].id})">Remover</button>
             </div>
         </div>`;
 

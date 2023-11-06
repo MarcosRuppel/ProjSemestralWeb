@@ -1,5 +1,6 @@
 .container {
-    height: 100vh;
+    min-height: 100vh;
+    max-height: fit-content;
 }
 .button-container {
     width: 100%;
@@ -35,4 +36,71 @@
     margin-right: 5px;
     color: rgb(30, 255, 0);
     font-size: 20px;
+}
+
+.card-admin{
+    max-width: 800px;
+    display: flex;
+    height: fit-content;
+    background-color: #3e3e3e;
+    box-shadow: 2px 3px 6px -2px rgba(0,0,0,.59);
+    border: 1px solid #000000;
+    border-radius: 5px;
+    /* padding: 10px; */
+    margin: 5px;
+    /* text-align: center; */
+    transition-duration: 0.5s;
+    /* justify-content: space-around; */
+}
+.card-admin input{
+    border:none;
+    outline:none;
+    margin:5px;
+    padding:5px;
+    border-radius:5px;
+    background-color:rgb(75,75,75);
+    color: #FFF;
+}
+.form-produtos{
+    width: 100%;
+    padding: 5px;
+}
+.info-prod-admin{
+    width: 100%;
+    display:flex;
+}
+.botoes-card{
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.botoes-card button{
+    color:#FFF;
+    height: 30%;
+    margin: 5px;
+    border-radius:5px;
+    border:none;
+}
+.img-prod-admin{
+    width: 15%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.img-prod-admin img{
+    /* height:100%; */
+    width: 100%;
+}
+.nome-desc-container{
+    /* width: 90%; */
+    /* height: 100%; */
+    display:flex;
+    flex-direction: column;
+}
+.botao-adm-modificar{
+    background-color: darkorange;
+}
+.botao-adm-remover{
+    background-color:red;
 }
