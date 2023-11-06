@@ -1,0 +1,80 @@
+/* Estilos do conteúdo de pagamento */
+.container {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .opcoes-pagamento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .opcoes-pagamento label {
+    color: #fff;
+  }
+  
+  #tipo-cartao {
+    padding: 10px;
+    border: none;
+    background-color: #4b5283;
+    border-radius: 5px;
+    color: #fff;
+    outline: none;
+    width: 100%;
+    margin: 5px 0;
+  }
+  
+  #detalhes-cartao label {
+    color: #fff;
+  }
+  
+  #detalhes-cartao input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    background-color: #4b5283;
+    border-radius: 5px;
+    outline: none;
+    color: #fff;
+  }
+  
+  #detalhes-cartao input[type="text"]:focus {
+    background-color: rgb(75, 75, 75);
+    border: 1px solid red;
+  }
+  
+  #detalhes-cartao #cvc {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    background-color: #4b5283;
+    border-radius: 5px;
+    outline: none;
+    color: #fff;
+  }
+
+  /* Estilos do botão de pagamento */
+  #pagar {
+    padding: 10px 20px;
+    background-color: #4b5283;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    font-size: medium;
+    transition-duration: 0.5s;
+    margin-top: 370px;
+  }
+  
+  #pagar:hover {
+    background-color: #85A3FF;
+  }
+
+  .fonte-personalizada {
+    font-family:sans-serif;
+    color: #fff;
+  }

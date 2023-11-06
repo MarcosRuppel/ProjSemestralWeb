@@ -33,37 +33,37 @@
         </div>
     </header>
     <div class="container">
-        <div class="barrasdelogin">
-            <div class="container">
-                <i class="fa-solid fa-credit-card icones-login"></i>
-                <input type="text" placeholder="Número do Cartão de Crédito" id="cartao_credito">
-            </div>
-            <div class="container">
-                <i class="fa-solid fa-calendar icones-login"></i>
-                <input type="text" placeholder="Data de Validade (MM/YY)" id="data_validade">
-            </div>
-            <div class="container">
-                <i class="fa-solid fa-lock icones-login"></i>
-                <input type="text" placeholder="Código de Segurança (CVV)" id="cvv">
-            </div>
-            <div class="container">
-                <i class="fa-solid fa-credit-card icones-login"></i>
-                <input type="text" placeholder="Número do Cartão de Débito" id="cartao_debito">
-            </div>
-            <button id="validar_cartao">Validar Cartão de Crédito</button>
+        <div class="opcoes-pagamento">
+            <label for="tipo-cartao">Selecione seu cartão:</label>
+            <select id="tipo-cartao">
+                <option value="credito">Crédito</option>
+                <option value="debito">Débito</option>
+            </select>
         </div>
-        <div class="container">
-            <div class="pix-payment">
-                <h2>Pagamento via PIX</h2>
-                <p>Escaneie o QR Code com seu aplicativo PIX para efetuar o pagamento.</p>
-                <div class="pix-qr-code">
-                    <img id="pix-qr-code-image" src="" alt="QR Code PIX" />
-                </div>
+        <div id="detalhes-cartao">
+            <div class="container">
+                <label for="numero-cartao">Número do Cartão:</label>
+                <input type="text" id="numero-cartao" placeholder="0000 0000 0000 0000">
+            </div>
+            <div class="container">
+                <label for="data-validade">Data de Validade (MM/YY):</label>
+                <input type="text" id="data-validade" placeholder="MM/YY">
+            </div>
+            <div class="container">
+                <label for="cvc">Código de Segurança (CVC):</label>
+                <input type="text" id="cvc" placeholder="000" maxlength="3">
             </div>
         </div>
-    </div>
-    <div class="container-botao">
-        <button id="Pagar" type="submit">Pagar</button>
+        <div class="opcao-pix">
+            <h2 class="fonte-personalizada">QR Code PIX</h2>
+            <p class="fonte-personalizada">Escaneie o QR Code com seu aplicativo PIX para efetuar o pagamento.</p>
+            <div class="pix-qr-code">
+                <img id="pix-qr-code-image" src="../media/images/pix.png" alt="QR Code PIX" />
+            </div>
+        </div>
+        <div class="container-botao">
+            <button id="pagar" type="submit">Pagar</button>
+        </div>
     </div>
 </body>
 </html>
