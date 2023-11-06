@@ -135,3 +135,24 @@ function mostrarSnackbar(mensagem) {
     s.className = "show";
     setTimeout(function(){ s.className = s.className.replace("show", ""); }, 3000);
 }
+
+async function checkout() {
+    const total_carrinho = document.getElementById('total').value;
+    let promise = await fetch('../php/carrinho.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `checkout=1&total=${total_carrinho}`,
+    });
+    const resultado = await promise.json();
+    if (resultado === "OK") {
+        mostrarSnackbar(resultado);
+        // Aguarde 2 segundos antes de redirecionar para a página de login
+        setTimeout(function () {
+            window.location.href = "../pagamento/";
+        }, 2000);
+    } else {
+        mostrarSnackbar(resultado);
+    }
+}

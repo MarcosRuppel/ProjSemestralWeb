@@ -19,6 +19,8 @@ div {
 
 /* Conteúdo da página*/
 .container {
+    min-height: 100vh;
+    max-height: fit-content;
     margin: 0 auto;
     padding: 20px;
     display: flex;

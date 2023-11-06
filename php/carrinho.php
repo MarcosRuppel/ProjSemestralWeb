@@ -38,6 +38,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_close($con);
     }
 
+    // Ir para o pagamento
+    elseif (isset($_POST['checkout'])) {
+        $valorapagar = $_POST['total'];
+        $valorfloat = floatval($valorapagar);
+        $query = "INSERT INTO pagamento (cliente_id, valor_total) VALUES (1, '$valorfloat')";
+        if (mysqli_query($con, $query)){
+            echo json_encode("OK");
+        } else {
+            echo json_encode("Erro!");
+        }
+    }
+
     // Reduzir a qtd de um produto no carrinho
     elseif (isset($_POST['reduce_from_cart'])) {
         $produto_id = $_POST['produto_id'];
@@ -84,7 +96,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
         mysqli_close($con);
     }
-    
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {

@@ -31,11 +31,12 @@ CREATE TABLE carrinho (
     FOREIGN KEY (produto_id) REFERENCES produto(id));
 
 CREATE TABLE pagamento  (
-    id INT NOT NULL PRIMARY KEY,
+    id INT NOT NULL AUTO_INCREMENT,
     cliente_id INT NOT NULL,
     valor_total DECIMAL(10,2) NOT NULL DEFAULT 0.00,
     valor_pago DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
     forma_pgto VARCHAR(45) NULL,
+    PRIMARY KEY (id),
     FOREIGN KEY (cliente_id) REFERENCES website.cliente(id)
 );
     

@@ -100,7 +100,9 @@
 }
 .botao-adm-modificar{
     background-color: darkorange;
+    cursor:pointer;
 }
 .botao-adm-remover{
     background-color:red;
+    cursor:pointer;
 }
