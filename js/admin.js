@@ -17,17 +17,16 @@ async function loadProducts(){
                 <img alt="Foto do produto" src="../media/images/${conteudo[i].imagem}"/>
             </div>
             <div class="info-prod">
-                <form id="form-produtos">
-                    <input type="number" class="id-prod" name="produto_id" value="${conteudo[i].id}" readonly>
-                    <input type="text" class="nome-prod" name="novo_nome" value="${conteudo[i].nome}" placeholder="Nome">
-                    <input type="text" class="desc-prod" name="nova_descricao" value="${conteudo[i].descricao}" placeholder="Descrição">
-                    <input type="number" class="preco-prod" name="novo_preco" value="${conteudo[i].preco}" placeholder="Preço unit.">
-                    <input type="number" class="estoque-prod" name="novo_estoque" value="${conteudo[i].estoque}" placeholder="Qtd estoque">
-                   </form>
+                <form id="form-produtos-${conteudo[i].id}">
+                    <input type="text" class="nome-prod" id="nome-prod-${conteudo[i].id}" name="novo_nome" value="${conteudo[i].nome}" placeholder="Nome">
+                    <input type="text" class="desc-prod" id="desc-prod-${conteudo[i].id}" name="nova_descricao" value="${conteudo[i].descricao}" placeholder="Descrição">
+                    <input type="number" class="preco-prod" id="preco-prod-${conteudo[i].id}" name="novo_preco" value="${conteudo[i].preco}" placeholder="Preço unit.">
+                    <input type="number" class="estoque-prod" id="estoque-prod-${conteudo[i].id}" name="novo_estoque" value="${conteudo[i].estoque}" placeholder="Qtd estoque">
+                </form>
             </div>
             <div class="botoes-card">
-                <button type="button" id="botaomodificar" onclick="updProd(${conteudo[i].id}, ${i})">Modificar</button>
-                <button type="button" id="botaoremover" onclick="delProd(${conteudo[i].id})">Remover</button>
+                <button type="button" id="botaomodificar-${conteudo[i].id}" onclick="updProd(${conteudo[i].id})">Modificar</button>
+                <button type="button" id="botaoremover-${conteudo[i].id}" onclick="delProd(${conteudo[i].id})">Remover</button>
             </div>
         </div>`;
 
@@ -42,13 +41,13 @@ async function loadProducts(){
     }
 }
 
-async function updProd(id_prod){
+async function updProd(id){
     // Verificar se o usuário preencheu todos os campos
-    const nome = document.getElementById("nome-prod").value;
-    const desc = document.getElementById("desc-prod").value;
-    const preco = document.getElementById("preco-prod").value;
-    const estoque = document.getElementById("estoque-prod").value;
-    const botaoModificar = document.getElementById("botaomodificar");
+    const nome = document.getElementById(`nome-prod-${id}`).value;
+    const desc = document.getElementById(`desc-prod-${id}`).value;
+    const preco = document.getElementById(`preco-prod-${id}`).value;
+    const estoque = document.getElementById(`estoque-prod-${id}`).value;
+    const botaoModificar = document.getElementById(`botaomodificar-${id}`);
     if (!nome || !desc || !preco || !estoque){
         mostrarSnackbar("Por favor, preencha todos os campos.");
     }
@@ -56,13 +55,14 @@ async function updProd(id_prod){
         // Desabilite o botão enquanto o processo está em andamento
         botaoModificar.disabled = true;
 
-        const form = document.getElementById("form-produtos");
+        const form = document.getElementById(`form-produtos-${id}`);
         const dados = new FormData(form);
-        let promise = await fetch(`../php/admin.php?upd_product`, {
-            method: "POST",
+        dados.append('produto_id', id);
+        let atualizar = await fetch('../php/upd-produto.php', {
+            method: 'POST',
             body: dados
         });
-        let resultado = await promise.json();
+        let resultado = await atualizar.json();
 
         if (resultado === "Produto atualizado com sucesso!") {
             mostrarSnackbar(resultado);
@@ -77,15 +77,15 @@ async function updProd(id_prod){
     }
 }
 
-async function delProd(id_prod){
-    const botaoRemover = document.getElementById("botaoremover");
+async function delProd(id){
+    const botaoRemover = document.getElementById(`botaoremover-${id}`);
     botaoRemover.disabled = true;
-    let remover = await fetch('../php/admin.php', {
+    let remover = await fetch('../php/del-produto.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: `del_product=1&produto_id=${id_prod}`,
+        body: `produto_id=${id}`,
     });
     let resultado = await remover.json();
     if (resultado === "Produto removido com sucesso!") {
