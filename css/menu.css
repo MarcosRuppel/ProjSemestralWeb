@@ -36,3 +36,22 @@
 .content {
     padding: 20px;
 }
+
+/* Propriedades para design responsivo */
+@media (max-width: 768px) {
+    .menu-toggle {
+        margin: 0 15px;
+    }
+    .menu {
+        top: 75px;
+    }
+}
+@media (max-width: 480px) {
+    .menu-toggle{
+        margin: 0 15px;
+    }
+    .menu{
+        top: 62px;
+    }
+}
+

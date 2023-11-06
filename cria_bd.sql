@@ -44,8 +44,8 @@ CREATE TABLE admins (
     cliente_id INT NOT NULL,
     FOREIGN KEY (cliente_id) REFERENCES cliente(id));
 
-INSERT INTO cliente (id, nome, email, senha) VALUES
-	(1, 'Administrador', 'admin@nodomain.com', 'secret');
+INSERT INTO cliente (id, nome, data_nasc, email, senha) VALUES
+	(1, 'Administrador', '1990-01-01', 'admin@nodomain.com', 'secret');
     
 INSERT INTO admins (id, cliente_id) VALUES (NULL, 1);
     

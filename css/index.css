@@ -172,7 +172,6 @@ header {
 
 /* Propriedades para design responsivo */
 @media (max-width: 768px) {
-    /* Estilos para telas menores, como tablets e smartphones */
     header {
         height: 75px;
     }
@@ -185,12 +184,6 @@ header {
     .buscador{
         margin: 0 5px;
     }
-    .menu-toggle{
-        margin: 0 15px;
-    }
-    .menu{
-        top: 75px;
-    }
     .card{
         margin: 5px;
         height: 350px;
@@ -198,7 +191,6 @@ header {
 }
 
 @media (max-width: 480px) {
-    /* Estilos para telas ainda menores, como smartphones em modo paisagem */
     header {
         height: 60px;
     }
@@ -211,12 +203,6 @@ header {
     .buscador{
         margin: 0 5px;
         padding: 5px;
-    }
-    .menu-toggle{
-        margin: 0 15px;
-    }
-    .menu{
-        top: 60px;
     }
     .card{
         margin: 5px;

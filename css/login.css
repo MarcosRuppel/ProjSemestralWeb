@@ -1,3 +1,7 @@
+input::selection { /* Tira aquela cor irritante de quando seleciona uma entrada do autopreenchimento */
+    background-color: rgb(75,75,75);
+    color: #FFF;
+}
 .container{
     height: 75vh;
     display: flex;
@@ -30,11 +34,16 @@
     margin: 10px 0;
     text-align: center;
     border: none;
+    color: #FFF;
     background-color: rgb(75, 75, 75);
     border-radius: 5px;
     outline: none;
     padding: 10px;
     width: 80%;
+}
+.barrasdelogin input:focus{
+    background-color: rgb(75,75,75);
+    border: 1px solid red;
 }
 #usuario{
     margin-top:10px;
@@ -60,6 +69,10 @@
     color:#fff;
     border:none;
     font-size:large;
+    transition-duration: 0.5s;
+}
+#botaologin:hover{
+    background-color: rgb(0, 170, 0);
 }
 #botaoregistrar{
     cursor:pointer;
@@ -72,6 +85,10 @@
     color:#fff;
     border:none;
     font-size:medium;
+    transition-duration: 0.5s;
+}
+#botaoregistrar:hover{
+    background-color: #85A3FF;
 }
 .container-login{
     display: flex;

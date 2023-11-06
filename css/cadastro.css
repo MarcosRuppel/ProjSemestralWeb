@@ -1,3 +1,7 @@
+input::selection { /* Tira aquela cor irritante de quando seleciona uma entrada do autopreenchimento */
+    background-color: rgb(75,75,75);
+    color: #FFF;
+}
 .container{
     height: 75vh;
     display: flex;
@@ -5,11 +9,12 @@
     justify-content: center;
 }
 #btnVoltar {
-    background-color: rgba(0, 0, 0, 0.87);
+    background-color: inherit;
     color: #fff;
     border: none;
     font-size: 20px;
     cursor: pointer;
+    margin: 5px;
 }
 .quatrado_login{
     margin:auto;
@@ -38,6 +43,7 @@
     text-align: center;
     border: none;
     background-color: rgb(75, 75, 75);
+    color: #FFF;
     border-radius: 5px;
     outline: none;
     padding: 10px;
@@ -67,6 +73,15 @@
     color:#fff;
     border:none;
     font-size:medium;
+    transition-duration: 0.5s;
+}
+#botaoregistrar:hover{
+    background-color: #85A3FF;
+}
+#botaoregistrar:disabled{
+    cursor: wait;
+    color: #A9AABC;
+    background-color: #454555;
 }
 .container-login{
     display: flex;
@@ -104,7 +119,7 @@
     }
     .imagem-login{
         height: 150px;
-        margin-top:-100px;
+        margin-top:-135px;
         justify-content: center;
         display: flex;
         width: 100%;
@@ -122,7 +137,7 @@
     }
     .imagem-login{
         height: 130px;
-        margin-top:-80px;
+        margin-top:-115px;
         justify-content: center;
         display: flex;
         width: 100%;

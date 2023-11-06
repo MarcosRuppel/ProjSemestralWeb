@@ -5,13 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function loadProducts(){
-    let resultado = await fetch("php/get-produtos.php?list=all", {
+    let resultado = await fetch("php/get-produtos.php?list=in_stock", {
         method: "GET"
     });
     let conteudo = await resultado.json();
     let produtos = "";
     for(var i = 0; i < conteudo.length; i++) {
-
         let template =
             `<div class="card">
             <div class="img-prod">

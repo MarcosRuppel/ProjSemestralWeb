@@ -6,6 +6,8 @@ $param = mysqli_real_escape_string($con, $param); // para evitar vulnerabilidade
 
 // efetua a busca se houver algum termo recebido por GET
 if ($param == 'all') {
+    $query = "SELECT * FROM website.produto";
+} else if ($param == 'in_stock'){
     $query = "SELECT * FROM website.produto WHERE (estoque > 0)";
 } else {
     $query = "SELECT * FROM website.produto WHERE (estoque > 0) AND (nome LIKE '%$param%' OR descricao LIKE '%$param%')";

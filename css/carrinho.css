@@ -16,6 +16,7 @@ div {
 /* Conteúdo da página*/
 .container {
     color:#FFF;
+    min-height: 100vh;
     height: fit-content;
     margin: 0 auto;
     display: flex;
@@ -102,34 +103,41 @@ div {
     display: flex;
 }
 .img-produto{
+    display:flex;
     width: 10%;
-    margin: auto;
+    align-items: center;
 }
 .img-produto img{
     max-width: 80%;
 }
 .nome-prod{
     width: 50%;
-    margin: auto;
+    display:flex;
+    align-items: center;
 }
 .val-unit{
     width: 12.5%;
-    margin: auto;
-    text-align: center;
+    display:flex;
+    align-items: center;
 }
 .qtde-produto {
     width: 10%;
-    margin: auto;
+    display:flex;
+    align-items: center;
+}
+.qtde-produto span{
+    margin:5px;
 }
 .total{
     width: 12.5%;
-    margin: auto;
-    text-align: center;
+    display: flex;
+    align-items: center;
     font-weight: bold;
 }
 .botao-remover{
     width: 5%;
-    margin: auto;
+    display: flex;
+    align-items: center;
 }
 
 .aumentar-qtd, .reduzir-qtd{
@@ -208,11 +216,15 @@ header {
     .logo-loja img{
         height: 60px;
     }
-    .menu-toggle{
-        margin: 0 15px;
+    .col-nome{
+        width: 59%;
     }
-    .menu{
-        top: 75px;
+    .col-valor-unit{
+        width: 12.5%;
+        display: flex;
+    }
+    .col-valor-total{
+        width: 10%;
     }
 }
 
@@ -227,10 +239,35 @@ header {
     .logo-loja img{
         height: 45px;
     }
-    .menu-toggle{
-        margin: 0 15px;
+    .container-carrinho{
+        margin: 0;
     }
-    .menu{
-        top: 60px;
+    .nome-prod{
+        width: 30%;
+    }
+    .val-unit{
+        width: 17.5%;
+    }
+    .qtde-produto{
+        width: 12.5%;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+    }
+    .total{
+        width: 20%;
+    }
+    .barra-titulo{
+        font-size: smaller;
+    }
+    .col-nome{
+        width: 40%;
+    }
+    .col-valor-unit{
+        width: 19%;
+        display: flex;
+    }
+    .detalhes-produto{
+        font-size:smaller;
     }
 }
