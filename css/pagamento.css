@@ -1,6 +1,7 @@
 /* Estilos do conteúdo de pagamento */
 .container {
     text-align: center;
+    min-height: 10vh;
     margin: 20px;
   }
   
