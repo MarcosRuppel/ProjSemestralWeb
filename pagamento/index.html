@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/menu.css" />
+    <link rel="stylesheet" href="../css/pagamento.css" />
+    <link rel="stylesheet" href="../resources/fontawesome/css/all.css" />
+    <script defer src="../js/menu.js"></script>
+    <script defer src="../js/pagamento.js"></script>
+    <title>Pagamento</title>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-loja">
+                <a href="../index.html"><img src="../media/images/logo.png" /></a>
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars" id="hamburger-icon"></i>
+                <i class="fas fa-times" id="close-icon" style="display: none;"></i>
+            </div>
+            <ul class="menu">
+                <li><a href="../"><i class="fa-solid fa-store" style="color: #ffffff;"></i>LOJA</a></li>
+                <li><a href="../carrinho/"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>CARRINHO (<span id="qtd-carrinho">0</span>)</a></li>
+                <li><a href="../login/"><i class="fa-solid fa-user" style="color: #ffffff;"></i>INICIAR SESSÃO</a></li>
+                <li><a href="../admin/"><i class="fa-solid fa-screwdriver-wrench" style="color: #ffffff;"></i>ADMIN</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+        <div class="opcoes-pagamento">
+            <label for="tipo-cartao">Selecione seu cartão:</label>
+            <select id="tipo-cartao">
+                <option value="credito">Crédito</option>
+                <option value="debito">Débito</option>
+            </select>
+        </div>
+        <div id="detalhes-cartao">
+            <div class="container">
+                <label for="numero-cartao">Número do Cartão:</label>
+                <input type="text" id="numero-cartao" placeholder="0000 0000 0000 0000">
+            </div>
+            <div class="container">
+                <label for="data-validade">Data de Validade (MM/YY):</label>
+                <input type="text" id="data-validade" placeholder="MM/YY">
+            </div>
+            <div class="container">
+                <label for="cvc">Código de Segurança (CVC):</label>
+                <input type="text" id="cvc" placeholder="000" maxlength="3">
+            </div>
+        </div>
+        <div class="opcao-pix">
+            <h2 class="fonte-personalizada">QR Code PIX</h2>
+            <p class="fonte-personalizada">Escaneie o QR Code com seu aplicativo PIX para efetuar o pagamento.</p>
+            <div class="pix-qr-code">
+                <img id="pix-qr-code-image" src="../media/images/pix.png" alt="QR Code PIX" />
+            </div>
+        </div>
+        <div class="container-botao">
+            <button id="pagar" type="submit">Pagar</button>
+        </div>
+    </div>
+</body>
+</html>

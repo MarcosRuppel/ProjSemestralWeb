@@ -16,6 +16,7 @@ div {
 /* Conteúdo da página*/
 .container {
     color:#FFF;
+    min-height: 100vh;
     height: fit-content;
     margin: 0 auto;
     display: flex;
@@ -79,6 +80,11 @@ div {
     color:#FFF;
     font-size:large;
     background-color: green;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+.resumo-carrinho button:hover {
+    background-color: rgb(0, 170, 0);
 }
 
 .card-produto {
@@ -89,7 +95,7 @@ div {
     border-bottom: 1px solid #e6ab00;
 }
 .card-produto:hover {
-    background-color: rgba(0,0,0,.59);
+    background-color: #084C61;
     transition-duration: 0.5s;
 }
 
@@ -97,42 +103,48 @@ div {
     display: flex;
 }
 .img-produto{
+    display:flex;
     width: 10%;
-    margin: auto;
+    align-items: center;
 }
 .img-produto img{
     max-width: 80%;
 }
 .nome-prod{
     width: 50%;
-    font-size:auto;
-    margin: auto;
+    display:flex;
+    align-items: center;
 }
 .val-unit{
     width: 12.5%;
-    margin: auto;
-    text-align: center;
+    display:flex;
+    align-items: center;
 }
 .qtde-produto {
     width: 10%;
-    margin: auto;
+    display:flex;
+    align-items: center;
+}
+.qtde-produto span{
+    margin:5px;
 }
 .total{
     width: 12.5%;
-    margin: auto;
-    text-align: center;
+    display: flex;
+    align-items: center;
     font-weight: bold;
 }
 .botao-remover{
     width: 5%;
-    margin: auto;
+    display: flex;
+    align-items: center;
 }
 
 .aumentar-qtd, .reduzir-qtd{
     height: 32px;
     width: 32px;
     color: #fff;
-    background-color: #007bff;
+    background-color: #177E89;
     font-weight: bold;
     font-size: large;
     border: none;
@@ -152,10 +164,6 @@ div {
     font-size: 16px;
 }
 
-
-
-
-
 /* cabeçalho e navegação*/
 header {
     display: flex;
@@ -163,8 +171,7 @@ header {
     height: 100px;
     margin: 0 auto;
     overflow: hidden;
-    background-color: #000;
-    /* border-bottom: solid 2px #FFF200; */
+    background-image: linear-gradient(to right, #000000, #38151d, #6d1f2d, #a42935, #db3a34);    /* border-bottom: solid 2px #FFF200; */
 }
 .header-container {
     display: flex;
@@ -192,46 +199,10 @@ header {
 .linha-decorativa {
     width: 100%;
     height: 2px;
-    background-image: linear-gradient(to right, #fff200, #e6ab00, #bc6b0b, #853411, #480502);
+    background-color: #FFC857;
+    /* background-image: linear-gradient(to right, #fff200, #e6ab00, #bc6b0b, #853411, #480502);*/
 }
 
-/* Menu de hamburguer */
-.menu-toggle {
-    display: flex;
-    align-items: center;
-    font-size: 30px;
-    cursor: pointer;
-    color: white;
-    margin: 0 40px;
-}
-.menu {
-    list-style-type: none;
-    padding: 10px 0;
-    margin: 0;
-    background-color: #ba0000;
-    position: absolute;
-    top: 100px;
-    width: 0px;
-    height: 100%;
-    transition: 0.5s;
-    box-shadow: 0px 0px rgba(0,0,0,0.5); /* modificada no JS do menu */
-}
-.menu li {
-    padding: 25px;
-    text-align: center;
-    font-weight: bold;
-    display: none; /* inicialmente oculto */
-}
-.menu li i {
-    margin-right: 10px;
-}
-.menu a {
-    color: white;
-    text-decoration: none;
-}
-.content {
-    padding: 20px;
-}
 
 /* Propriedades para design responsivo */
 @media (max-width: 768px) {
@@ -245,11 +216,15 @@ header {
     .logo-loja img{
         height: 60px;
     }
-    .menu-toggle{
-        margin: 0 15px;
+    .col-nome{
+        width: 59%;
     }
-    .menu{
-        top: 75px;
+    .col-valor-unit{
+        width: 12.5%;
+        display: flex;
+    }
+    .col-valor-total{
+        width: 10%;
     }
 }
 
@@ -264,10 +239,35 @@ header {
     .logo-loja img{
         height: 45px;
     }
-    .menu-toggle{
-        margin: 0 15px;
+    .container-carrinho{
+        margin: 0;
     }
-    .menu{
-        top: 60px;
+    .nome-prod{
+        width: 30%;
+    }
+    .val-unit{
+        width: 17.5%;
+    }
+    .qtde-produto{
+        width: 12.5%;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+    }
+    .total{
+        width: 20%;
+    }
+    .barra-titulo{
+        font-size: smaller;
+    }
+    .col-nome{
+        width: 40%;
+    }
+    .col-valor-unit{
+        width: 19%;
+        display: flex;
+    }
+    .detalhes-produto{
+        font-size:smaller;
     }
 }

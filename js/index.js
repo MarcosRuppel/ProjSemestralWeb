@@ -1,21 +1,20 @@
 // executa ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
-    updNumItensMenu(); // atualiza a quantidade no menu
-    loadProducts(); // carrega os cards do banco
+    updNumItensMenu().then(); // atualiza a quantidade no menu
+    loadProducts().then(); // carrega os cards do banco
 });
 
 async function loadProducts(){
-    var resultado = await fetch("php/get-produtos.php?list=all", {
+    let resultado = await fetch("php/get-produtos.php?list=in_stock", {
         method: "GET"
     });
-    var conteudo = await resultado.json();
-    var produtos = "";
+    let conteudo = await resultado.json();
+    let produtos = "";
     for(var i = 0; i < conteudo.length; i++) {
-
-        var template =
-        `<div class="card">
+        let template =
+            `<div class="card">
             <div class="img-prod">
-                <img src="media/images/${conteudo[i].imagem}"/>
+                <img alt="Foto do produto" src="media/images/${conteudo[i].imagem}"/>
             </div>
             <div class="info-prod">
                 <div class="nome-desc">
@@ -31,7 +30,7 @@ async function loadProducts(){
 
         produtos += template;
     }
-    if (produtos == ""){
+    if (produtos === ""){
         document.getElementById('produtos').innerHTML =
         `
         `
@@ -43,7 +42,7 @@ async function loadProducts(){
 
 // Notificacao em toast (snackbar)
 function mostrarSnackbar(mensagem){
-    s = document.getElementById('snackbar');
+    let s = document.getElementById('snackbar');
     s.innerHTML = mensagem;
     s.className = "show";
     setTimeout(function(){ s.className = s.className.replace("show", ""); }, 3000);
@@ -51,7 +50,7 @@ function mostrarSnackbar(mensagem){
 
 // função de adicionar produtos ao carrinho
 async function addToCart(produto_id) {
-    var adicionar = await fetch('php/carrinho.php', {
+    let adicionar = await fetch('php/carrinho.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -60,18 +59,7 @@ async function addToCart(produto_id) {
     });
     const resultado = await adicionar.text();
     mostrarSnackbar(resultado);
-    updNumItensMenu();
-}
-
-// função de recuperar o carrinho do banco
-async function getCartItems() {
-    await fetch('php/carrinho.php?get_cart=1', {
-        method: 'GET',
-    }).then(response => {
-        return response.json();
-    }).then(data => {
-        console.log(data);
-    });
+    await updNumItensMenu();
 }
 
 // função de recuperar a qtde de itens no carrinho

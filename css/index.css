@@ -19,6 +19,8 @@ div {
 
 /* Conteúdo da página*/
 .container {
+    min-height: 100vh;
+    max-height: fit-content;
     margin: 0 auto;
     padding: 20px;
     display: flex;
@@ -74,7 +76,7 @@ div {
     color: #FFF200;
     margin-top: auto;
     margin-bottom: 5px;
-    align-items: bottom;
+    align-content: flex-end;
 }
 .botao-carrinho {
     width: 100%;
@@ -90,6 +92,7 @@ div {
     height: 100%;
     cursor: pointer;
     border-radius: 5px;
+    transition-duration: 0.5s;
 }
 .botao-carrinho button:hover {
     background-color: rgb(0, 170, 0);
@@ -105,7 +108,7 @@ header {
     height: 100px;
     margin: 0 auto;
     overflow: hidden;
-    background-color: #000;
+    background-image: linear-gradient(to right, #000000, #38151d, #6d1f2d, #a42935, #db3a34);
     /* border-bottom: solid 2px #FFF200; */
 }
 .header-container {
@@ -134,7 +137,8 @@ header {
 .linha-decorativa {
     width: 100%;
     height: 2px;
-    background-image: linear-gradient(to right, #fff200, #e6ab00, #bc6b0b, #853411, #480502);
+    background-color: #FFC857;
+    /* background-image: linear-gradient(to right, #fff200, #e6ab00, #bc6b0b, #853411, #480502);*/
 }
 
 
@@ -168,47 +172,8 @@ header {
 }
 
 
-/* Menu de hamburguer */
-.menu-toggle {
-    display: flex;
-    align-items: center;
-    font-size: 30px;
-    cursor: pointer;
-    color: white;
-    margin: 0 40px;
-}
-.menu {
-    list-style-type: none;
-    padding: 10px 0;
-    margin: 0;
-    background-color: #ba0000;
-    position: absolute;
-    top: 100px;
-    width: 0px;
-    height: 100%;
-    transition: 0.5s;
-    box-shadow: 0px 0px rgba(0,0,0,0.5); /* modificada no JS do menu */
-}
-.menu li {
-    padding: 25px;
-    text-align: center;
-    font-weight: bold;
-    display: none; /* inicialmente oculto */
-}
-.menu li i {
-    margin-right: 10px;
-}
-.menu a {
-    color: white;
-    text-decoration: none;
-}
-.content {
-    padding: 20px;
-}
-
 /* Propriedades para design responsivo */
 @media (max-width: 768px) {
-    /* Estilos para telas menores, como tablets e smartphones */
     header {
         height: 75px;
     }
@@ -221,12 +186,6 @@ header {
     .buscador{
         margin: 0 5px;
     }
-    .menu-toggle{
-        margin: 0 15px;
-    }
-    .menu{
-        top: 75px;
-    }
     .card{
         margin: 5px;
         height: 350px;
@@ -234,7 +193,6 @@ header {
 }
 
 @media (max-width: 480px) {
-    /* Estilos para telas ainda menores, como smartphones em modo paisagem */
     header {
         height: 60px;
     }
@@ -247,12 +205,6 @@ header {
     .buscador{
         margin: 0 5px;
         padding: 5px;
-    }
-    .menu-toggle{
-        margin: 0 15px;
-    }
-    .menu{
-        top: 60px;
     }
     .card{
         margin: 5px;

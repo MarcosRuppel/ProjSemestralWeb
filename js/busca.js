@@ -1,17 +1,17 @@
-var buscadorInput = document.getElementById('buscar');
-var searchIcon = document.getElementById('searchIcon');
-var clearButton = document.getElementById('clearButton');
-var tituloPagina = document.getElementById('titulo-container');
+let buscadorInput = document.getElementById('buscar');
+let searchIcon = document.getElementById('searchIcon');
+let clearButton = document.getElementById('clearButton');
+let tituloPagina = document.getElementById('titulo-container');
 
 buscadorInput.addEventListener('keyup', function (event) {
     searchIcon.classList.add('hidden');
     clearButton.classList.remove('hidden');
 
     if (event.key === 'Enter') {
-        var termoDeBusca = buscadorInput.value;
+        let termoDeBusca = buscadorInput.value;
 
         // quando a tecla "Enter" for pressionada, faça uma solicitação AJAX
-        buscarProdutos(termoDeBusca);
+        buscarProdutos(termoDeBusca).then();
 
         tituloPagina.innerHTML = `Resultados da Busca por "${termoDeBusca}"`;
     }
@@ -29,10 +29,10 @@ async function buscarProdutos(termo) {
     produtosContainer.innerHTML = ''; // Limpa a lista de produtos atual
 
     for (var i = 0; i < conteudo.length; i++) {
-        var template =
+        let template =
             `<div class="card">
                 <div class="img-prod">
-                    <img src="media/images/${conteudo[i].imagem}"/>
+                    <img alt="Foto do produto" src="media/images/${conteudo[i].imagem}"/>
                 </div>
                 <div class="info-prod">
                     <div class="nome-prod">${conteudo[i].nome}</div>
@@ -59,7 +59,7 @@ function limparBusca() {
     clearButton.classList.add('hidden');
 
     // Reexibir todos os produtos
-    buscarProdutos('all');
+    buscarProdutos('all').then();
     
     tituloPagina.innerHTML = 'Mostrando Todos os Produtos:';
 }
